@@ -1,0 +1,76 @@
+:root{
+    font-size: 16px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.ant-menu-inline {
+    background-color: #121117;
+    color: white;
+
+
+    .ant-menu-item-selected {
+        color: white;
+        background-color: rgba(255, 255, 255, 0.1)
+    }
+    
+    .ant-menu-item-active {
+        background-color: rgba(255, 255, 255, 0.2) !important;
+        color: white !important;
+    }
+
+}
+
+.ant-menu-horizontal {
+    background-color: #121117;
+    color: white;
+
+    .ant-menu-item-selected {
+        color: white;
+        background-color: rgba(255, 255, 255, 0.1)
+    }
+    
+    .ant-menu-item-active {
+        // background-color: rgba(255, 255, 255, 0.2) !important;
+        color: white !important;
+    }
+}
+
+.ant-switch {
+    background-color: rgb(87, 83, 78) !important;
+}
+
+.ant-switch-checked {
+    background-color: rgb(22, 119, 255) !important;
+}
+
+.ant-input {
+    background-color: transparent;
+}
+
+input::placeholder {
+    color: #8d8d8d !important;
+}
+
+.ant-input-group-addon {
+    svg {
+        color: #8d8d8d;
+    }
+}
+
+
+.green-circle {
+    width: .5rem;
+    height: .5rem;
+    display: inline-block;
+    background: rgb(73, 170, 25);
+    border-radius: 50%
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

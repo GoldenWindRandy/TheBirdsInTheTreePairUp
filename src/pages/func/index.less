@@ -1,0 +1,50 @@
+li {
+	list-style: none;
+}
+
+.logo {
+    background-image: url("@/assets/pics/logo.png");
+    background-size: cover;
+    position: relative;
+    top: -1rem;
+    left: -1rem;
+    transform: scale(1.5);
+}
+
+.lighting {
+    background-image: url("@/assets/svgs/lighting.svg");
+    background-size: cover;
+}
+
+.bell {
+    background-image: url("@/assets/svgs/bell.svg");
+    background-size: cover;
+    background-size: 90%;
+}
+
+.with-trangle {
+	&::before {
+		content: "";
+        display: inline-block;
+		width: 0;
+		height: 0;
+        position: relative;
+		border: .3rem solid;
+		border-color: transparent transparent transparent white;
+        margin-right: 1rem;
+	}
+}
+
+.side-menu {
+	li {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+	}
+}
+
+.side-sub-menu {
+    li {
+        color: #8d8d8d;
+        padding-left: 2rem;
+    }
+}

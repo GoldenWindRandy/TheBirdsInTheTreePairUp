@@ -1,0 +1,17 @@
+{
+    "exclude": [
+        "node_modules"
+    ],
+    "compilerOptions": {
+        "outDir": "./dist",
+        "target": "ES2015",
+        "module": "ES6",
+        "moduleResolution": "Node",
+        "strict": true,
+        "noEmitOnError": true,
+        "sourceMap": true,
+        "importHelpers": true,
+        "esModuleInterop": true,
+        "jsx": "react",
+    }
+}
