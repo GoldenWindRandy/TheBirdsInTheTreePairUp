@@ -1,20 +1,15 @@
 .main-right {
-    background-image: url(http://localhost:8888/63e6d46c3439eddd2919.png);
+    background-image: url("../image/p1.png");
     background-size: cover;
 }
 
 .logo {
-    background-image: url(http://localhost:8888/6f6f2dc85265dedf2546.png);
+    background-image: url("../image/p2.png");
     background-size: cover;
 }
 
 .login {
-    background-image: url(http://localhost:8888/1d21cce31cba342ebeba.png);
-    background-size: cover;
-}
-
-.logo {
-    background-image: url(http://localhost:8888/6f6f2dc85265dedf2546.png);
+    background-image: url("../image/p3.png");
     background-size: cover;
 }
 
@@ -30,70 +25,70 @@ input:focus {
 }
 
 .cloud {
-    background-image: url(http://localhost:8888/06efa53a35d0e0c7929d.png);
+    background-image: url("../image/p4.png");
     background-size: cover;
 }
 
 .pressure {
-    background-image: url(http://localhost:8888/d2295ed1d48512b7e3b3.svg);
+    background-image: url("../svg/s1.svg");
     background-size: cover;
 }
 
 .wind {
-    background-image: url(http://localhost:8888/386fa1a22bd5603f66d3.svg);
+    background-image: url("../svg/s2.svg");
     background-size: cover;
 }
 
 .visbility {
-    background-image: url(http://localhost:8888/c2bafd8ec99e9794d9d7.svg);
+    background-image: url("../svg/s3.svg");
     background-size: cover;
 }
 
 .humidity {
-    background-image: url(http://localhost:8888/2bae0011ec1c32226dec.svg);
+    background-image: url("../svg/s4.svg");
     background-size: cover;
 }
 
 .air-quality {
-    background-image: url(http://localhost:8888/18093088008f0daea363.svg);
+    background-image: url("../svg/s5.svg");
     background-size: cover;
 }
 
 .uv {
-    background-image: url(http://localhost:8888/38a6130f92f4f4a1ed0c.svg);
+    background-image: url("../svg/s6.svg");
     background-size: cover;
 }
 
 .bed-room {
-    background-image: url(http://localhost:8888/f55a511cf204fa8355fb.png);
+    background-image: url("../image/p5.png");
     background-position: top;
     background-size: cover;
 }
 
 .living-room {
-    background-image: url(http://localhost:8888/6cc6b78fa4ee16ac7058.png);
+    background-image: url("../image/p6.png");
     background-position: top;
     background-size: cover;
 }
 
 .kitchen {
-    background-image: url(http://localhost:8888/b38c63ab784417526502.png);
+    background-image: url("../image/p7.png");
     background-position: top;
     background-size: cover;
 }
 
 .cool {
-    background-image: url(http://localhost:8888/8e7dbfd0f7b4e887a01d.svg);
+    background-image: url("../svg/s7.svg");
     background-size: cover;
 }
 
 .warm {
-    background-image: url(http://localhost:8888/8144d86bd176f1b50e2c.svg);
+    background-image: url("../svg/s8.svg");
     background-size: cover;
 }
 
 .humid {
-    background-image: url(http://localhost:8888/67ddac1fd8b159556a43.svg);
+    background-image: url("../svg/s9.svg");
     background-size: cover;
 }
 
@@ -102,7 +97,7 @@ li {
 }
 
 .logo {
-    background-image: url(http://localhost:8888/6f6f2dc85265dedf2546.png);
+    background-image: url("../image/p2.png");
     background-size: cover;
     position: relative;
     top: -1rem;
@@ -111,12 +106,12 @@ li {
 }
 
 .lighting {
-    background-image: url(http://localhost:8888/7911285464defea72f40.svg);
+    background-image: url("../svg/s10.svg");
     background-size: cover;
 }
 
 .bell {
-    background-image: url(http://localhost:8888/8ae740680affb3b8a1a2.svg);
+    background-image: url("../svg/s11.svg");
     background-size: cover;
     background-size: 90%;
 }
@@ -129,16 +124,6 @@ li {
 .alert.show {
     opacity: 1;
 }
-
-.r-alert {
-    transition: .5s;
-    opacity: 0;
-}
-
-.r-alert.show {
-    opacity: 1;
-}
-
 
 /* 表单容器 */
 .form-wrap {
@@ -212,27 +197,27 @@ li {
 }
 
 .fire {
-    background-image: url(http://localhost:8888/d7025a99fa801d1e626b.svg);
+    background-image: url("../svg/s12.svg");
     background-size: cover;
 }
 
 .drop-warn {
-    background-image: url(http://localhost:8888/96a1020cf0ff2130741d.svg);
+    background-image: url("../svg/s13.svg");
     background-size: cover;
 }
 
 .break {
-    background-image: url(http://localhost:8888/410c1996d5291e987e1d.svg);
+    background-image: url("../svg/s14.svg");
     background-size: cover;
 }
 
 .break-dark {
-    background-image: url(http://localhost:8888/8934d001f4c5e843ad12.svg);
+    background-image: url("../svg/s15.svg");
     background-size: cover;
 }
 
 .disk {
-    background-image: url(http://localhost:8888/dbb6baf7a9a4f18837af.svg);
+    background-image: url("../svg/s16.svg");
     background-size: cover;
 }
 
