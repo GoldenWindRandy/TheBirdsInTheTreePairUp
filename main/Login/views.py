@@ -29,7 +29,8 @@ class user_list(generics.ListCreateAPIView):
 class user_detail(APIView):
     def get_objects(self,pk):
         try:
-            return Userinfo.objects.get(pk=pk)
+            return Userinfo.objects.get(
+                pk=pk)
         except Userinfo.DoesNotExist:
             raise Http404
     def get(self,request,pk,format=None):
@@ -76,12 +77,18 @@ def Register(request, format=None):
     username=request.data['username']
     nickname=request.data['nickname']
     password=request.data["password"]
-    instance = Userinfo.objects.create(nickname=nickname,username=username)
-    result = default_response()
-    result['data']['reseaion'] = "创建成功"
-    result['data']['pk']=instance.id
-    # 需要传什么参数这块可以给
-    return Response(result)
+    flag = Userinfo.objects.filter(username=username)
+    if not flag.exists():
+        instance = Userinfo.objects.create(nickname=nickname, username=username)
+        result = default_response()
+        result['data']['reseaion'] = "创建成功"
+        result['data']['pk'] = instance.id
+        # 需要传什么参数这块可以给
+        return Response(result)
+    else:
+        result = default_response()
+        result['data']['reseaion'] = "用户名已存在"
+        return Response(result)
 
 @api_view(['POST'])
 def login_view(request, format=None):
@@ -90,7 +97,7 @@ def login_view(request, format=None):
     password=request.data["password"]
     user_info=Userinfo.objects.filter(username=username,password=password)
     result = default_response()
-    if user_info is None:
+    if not user_info.exists():
         result['data']['reseaion'] = "登录失败"
         return Response(result)
     result['data']['reseaion'] = "登录成功"
