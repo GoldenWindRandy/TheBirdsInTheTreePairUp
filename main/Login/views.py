@@ -1,21 +1,12 @@
-from django.shortcuts import render
-from django.http import HttpResponse,JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework.renderers import JSONRenderer
+from django.http import Http404
+from rest_framework import generics
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework.parsers import JSONParser
-from .models import *
-from .serializers import *
 from rest_framework.views import APIView
-from django.http import Http404
-from rest_framework import mixins
-from rest_framework import generics
-from django.contrib.auth.models import User
-from Login.verifications import wxlogin,create_jwt_token
+
 from utils.default_value import default_response
-from utils.decorator import new_login_check
+from .serializers import *
 
 
 # Create your views here.
@@ -25,33 +16,39 @@ class user_list(generics.ListCreateAPIView):
     queryset = Userinfo.objects.all()
     serializer_class = UserInfoSerializer
 
+
 # 针对特定用户操作
 class user_detail(APIView):
-    def get_objects(self,pk):
+    def get_objects(self, pk):
         try:
-            return Userinfo.objects.get(pk=pk)
+            return Userinfo.objects.get(
+                pk=pk)
         except Userinfo.DoesNotExist:
             raise Http404
-    def get(self,request,pk,format=None):
+
+    def get(self, request, pk, format=None):
         user = self.get_objects(pk)
         serializer = UserInfoSerializer(user)
         result = default_response()
         result['data'] = serializer.data
         return Response(result)
-    def put(self,request,pk,format=None):
+
+    def put(self, request, pk, format=None):
         user = self.get_objects(pk)
-        serializer = UserInfoSerializer(user,data=request.data)
+        serializer = UserInfoSerializer(user, data=request.data)
         print(request.data)
         if serializer.is_valid():
             serializer.save()
             result = default_response()
             result['data'] = serializer.data
             return Response(result)
-        return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
-    def delete(self,request,pk,format=None):
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
         user = self.get_objects(pk)
         user.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
 
 # @api_view(['POST'])
 # def wxlogin_view(request, format=None):
@@ -73,27 +70,33 @@ class user_detail(APIView):
 @api_view(['POST'])
 def Register(request, format=None):
     print(request.data)
-    username=request.data['username']
-    nickname=request.data['nickname']
-    password=request.data["password"]
-    instance = Userinfo.objects.create(nickname=nickname,username=username)
-    result = default_response()
-    result['data']['reseaion'] = "创建成功"
-    result['data']['pk']=instance.id
-    # 需要传什么参数这块可以给
-    return Response(result)
+    username = request.data['username']
+    nickname = request.data['nickname']
+    password = request.data["password"]
+    flag = Userinfo.objects.filter(username=username)
+    if not flag.exists():
+        instance = Userinfo.objects.create(nickname=nickname, username=username,password=password)
+        result = default_response()
+        result['data']['reseaion'] = "创建成功"
+        result['data']['pk'] = instance.id
+        # 需要传什么参数这块可以给
+        return Response(result)
+    else:
+        result = default_response()
+        result['data']['reseaion'] = "用户名已存在"
+        return Response(result)
+
 
 @api_view(['POST'])
 def login_view(request, format=None):
     print(request.data)
-    username=request.data['username']
-    password=request.data["password"]
-    user_info=Userinfo.objects.filter(username=username,password=password)
+    username = request.data['username']
+    password = request.data["password"]
+    user_info = Userinfo.objects.filter(username=username)[0]
     result = default_response()
-    if user_info is None:
+    if user_info is None or user_info.password != password:
         result['data']['reseaion'] = "登录失败"
         return Response(result)
     result['data']['reseaion'] = "登录成功"
     # 需要传什么参数这块可以给
     return Response(result)
-
