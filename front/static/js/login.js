@@ -33,18 +33,18 @@ document.querySelector('.btn-login').addEventListener('click', () => {
 
     // 基于axios提交用户名和密码
     axios({
-        url: 'http://127.0.0.1:8000/user/login/',
+        url: 'http://127.0.0.1:5500/aaa/user/login/',
         method: 'post',
         data: {
             username,
             password
         }
     }).then(result => {
-        console.log(result)
-        alertFn(result.data.reseaion, true)
-        window.location.replace('func.html')
+        //console.log(result)
+        alertFn(result.data.data.reseaion, true)
+        window.location.replace("./func.html")
     }).catch(error => {
-        console.log(result)
+        //console.log(error)
         //处理错误信息
         alertFn(error.response.data.reseaion, false)
     })
@@ -108,18 +108,20 @@ new Vue({
                     const username = this.ruleForm.user;
                     const password = this.ruleForm.pass;
                     axios({
-                        url: 'http://hmajax.itheima.net/api/register',
+                        url: 'http://127.0.0.1:5500/aaa/user/register/',
                         method: 'post',
                         data: {
                             username,
                             password
                         }
                     }).then(result => {
-                        alert(result.data.message)
+                        //console.log(result)
+                        alert(result.data.data.reseaion)
                         this.$refs[formName].resetFields();
                         regModal.hide()
                     }).catch(error => {
-                        alert(error.response.data.message)
+                        //console.log(error)
+                        alert(error.response.data.reseaion)
                     })
                 } else {
                     console.log('error submit!!');
