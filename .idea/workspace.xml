@@ -4,40 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76fdb60c-558a-451a-9c5c-e141e81aa862" name="Changes" comment="debug:fix register and login">
-      <change afterPath="$PROJECT_DIR$/main/env/Lib/site-packages/tests/bools_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/env/Lib/site-packages/tests/dates_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/env/Lib/site-packages/tests/dicts/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/env/Lib/site-packages/tests/dicts/chained_dict_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/env/Lib/site-packages/tests/dicts/helpers_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/env/Lib/site-packages/tests/dicts/limited_dict_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/env/Lib/site-packages/tests/enum_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/env/Lib/site-packages/tests/lists_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/env/Lib/site-packages/tests/math_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/env/Lib/site-packages/tests/objects_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/env/Lib/site-packages/utils-1.0.1.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/env/Lib/site-packages/utils-1.0.1.dist-info/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/env/Lib/site-packages/utils-1.0.1.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/env/Lib/site-packages/utils-1.0.1.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/env/Lib/site-packages/utils-1.0.1.dist-info/REQUESTED" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/env/Lib/site-packages/utils-1.0.1.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/env/Lib/site-packages/utils-1.0.1.dist-info/top_level.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/.idea/IntelligentTemperatureControl.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/Login/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/Login/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/main/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/django_news/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/env/Lib/site-packages/tests/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/django_news/asgi.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/django_news/settings.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/django_news/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/django_news/wsgi.py" beforeDir="false" />
-    </list>
+    <list default="true" id="76fdb60c-558a-451a-9c5c-e141e81aa862" name="Changes" comment="debug:fix register and login" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -124,7 +91,7 @@
       <workItem from="1700193718424" duration="36000" />
       <workItem from="1700212795589" duration="1286000" />
       <workItem from="1700478011055" duration="55000" />
-      <workItem from="1700569297187" duration="2131000" />
+      <workItem from="1700569297187" duration="2223000" />
     </task>
     <task id="LOCAL-00001" summary="debug:fix register and login">
       <created>1700191680760</created>
@@ -133,11 +100,29 @@
       <option name="project" value="LOCAL" />
       <updated>1700191680760</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="debug:fix register and login">
+      <created>1700571471861</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1700571471861</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
