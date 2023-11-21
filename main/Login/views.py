@@ -1,4 +1,4 @@
-from django.http import Http404
+from django.http import Http404, HttpResponseBadRequest
 from rest_framework import generics
 from rest_framework import status
 from rest_framework.decorators import api_view
@@ -50,32 +50,16 @@ class user_detail(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-# @api_view(['POST'])
-# def wxlogin_view(request, format=None):
-#     """
-#     小程序端微信登录
-#     """
-#     print(request.data)
-#     result = default_response()
-#     instance = wxlogin(request)
-#     if instance is None:
-#         result['data']['reseaion'] = "登录失败"
-#         return Response(result)
-#     jwt_token = create_jwt_token(instance.open_id)
-#     result['data']['JWT'] = jwt_token
-#     result['data']['user_id'] = instance.id
-#     return Response(result)
 
 # post函数发data的
 @api_view(['POST'])
 def Register(request, format=None):
     print(request.data)
     username = request.data['username']
-    nickname = request.data['nickname']
     password = request.data["password"]
     flag = Userinfo.objects.filter(username=username)
     if not flag.exists():
-        instance = Userinfo.objects.create(nickname=nickname, username=username,password=password)
+        instance = Userinfo.objects.create( username=username,password=password)
         result = default_response()
         result['data']['reseaion'] = "创建成功"
         result['data']['pk'] = instance.id
@@ -84,7 +68,7 @@ def Register(request, format=None):
     else:
         result = default_response()
         result['data']['reseaion'] = "用户名已存在"
-        return Response(result)
+        return HttpResponseBadRequest(result)
 
 
 @api_view(['POST'])
@@ -96,7 +80,7 @@ def login_view(request, format=None):
     result = default_response()
     if user_info is None or user_info.password != password:
         result['data']['reseaion'] = "登录失败"
-        return Response(result)
+        return HttpResponseBadRequest(result)
     result['data']['reseaion'] = "登录成功"
     # 需要传什么参数这块可以给
     return Response(result)
