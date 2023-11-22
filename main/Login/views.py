@@ -1,3 +1,6 @@
+import http.client
+
+from django.contrib.auth import authenticate
 from django.http import Http404, HttpResponseBadRequest
 from rest_framework import generics
 from rest_framework import status
@@ -50,16 +53,15 @@ class user_detail(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-
 # post函数发data的
 @api_view(['POST'])
 def Register(request, format=None):
     print(request.data)
     username = request.data['username']
-    password = request.data["password"]
+    password = str(request.data["password"])
     flag = Userinfo.objects.filter(username=username)
     if not flag.exists():
-        instance = Userinfo.objects.create( username=username,password=password)
+        instance = Userinfo.objects.create(username=username, password=password)
         result = default_response()
         result['data']['reseaion'] = "创建成功"
         result['data']['pk'] = instance.id
@@ -67,20 +69,20 @@ def Register(request, format=None):
         return Response(result)
     else:
         result = default_response()
-        result['data']['reseaion'] = "用户名已存在"
-        return HttpResponseBadRequest(result)
+        # return Response(result,  status=status.HTTP_400_BAD_REQUEST)
+        return HttpResponseBadRequest("用户名已存在")
 
 
 @api_view(['POST'])
 def login_view(request, format=None):
     print(request.data)
     username = request.data['username']
-    password = request.data["password"]
+    password = str(request.data["password"])
+    if not Userinfo.objects.filter(username=username).exists():
+        return HttpResponseBadRequest("用户名不存在")
     user_info = Userinfo.objects.filter(username=username)[0]
+    if user_info.password != password:
+        return HttpResponseBadRequest("密码错误")
     result = default_response()
-    if user_info is None or user_info.password != password:
-        result['data']['reseaion'] = "登录失败"
-        return HttpResponseBadRequest(result)
     result['data']['reseaion'] = "登录成功"
-    # 需要传什么参数这块可以给
     return Response(result)
