@@ -44,9 +44,9 @@ document.querySelector('.btn-login').addEventListener('click', () => {
         alertFn(result.data.data.reseaion, true)
         window.location.replace("./func.html")
     }).catch(error => {
-        //console.log(error)
+        console.log(error)
         //处理错误信息
-        alertFn(error.response.data.reseaion, false)
+        alertFn("用户名或密码错误", false)
     })
 })
 const regModalDom = document.querySelector('.register-modal')
@@ -121,7 +121,7 @@ new Vue({
                         regModal.hide()
                     }).catch(error => {
                         //console.log(error)
-                        alert(error.response.data.reseaion)
+                        alert("账号被占用")
                     })
                 } else {
                     console.log('error submit!!');

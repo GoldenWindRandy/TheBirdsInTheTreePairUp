@@ -16,6 +16,106 @@ body {
     overflow: scroll;
 }
 
+.liList {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #17161a;
+    margin-bottom: 20px;
+    justify-content: center;
+    border-radius: 50px;
+}
+
+.navi {
+    font-size: 18px;
+    color: #165e83;
+    font-weight: bold;
+}
+
+
+.quarter-div {
+    width: 50%;
+    height: 50%;
+    float: left;
+}
+
+.dataFrame1 {
+    width: 360px;
+    height: 220px;
+    background-color: rgba(243, 239, 231, 0.1);
+    border-radius: 10px;
+    border-width: 1px;
+    box-shadow: 5px 5px 5px #f8e58c;
+    border-color: #f8e58c;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.dataFrame2 {
+    width: 450px;
+    height: 220px;
+    background-color: rgba(243, 239, 231, 0.1);
+    border-radius: 10px;
+    border-width: 1px;
+    box-shadow: 5px 5px 5px #cee4ae;
+    border-color: #cee4ae;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.dataFrame3 {
+    width: 360px;
+    height: 220px;
+    background-color: rgba(243, 239, 231, 0.1);
+    border-radius: 10px;
+    border-width: 1px;
+    box-shadow: 5px 5px 5px #bbc8e6;
+    border-color: #bbc8e6;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.dataFrame4 {
+    width: 450px;
+    height: 220px;
+    background-color: rgba(243, 239, 231, 0.1);
+    border-radius: 10px;
+    border-width: 1px;
+    box-shadow: 5px 5px 5px #fdeff2;
+    border-color: #fdeff2;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.dataTitle {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 25px;
+}
+
+.dataToday {
+    font-size: 18px;
+    margin-left: 25px;
+}
+
+.dataLegend {
+    width: 100px;
+    height: 55px;
+    background-color: rgba(243, 239, 231, 0.1);
+    border-radius: 15px;
+    border-width: 0.5px;
+    border-color: #f8f4e6;
+    margin-top: 60px;
+    margin-left: 15px;
+    text-align: center;
+
+}
 
 .search-city {
     width: 174px;

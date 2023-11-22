@@ -1,4 +1,3 @@
-
 new Vue({
     el: '#app',
     data() {
@@ -21,9 +20,37 @@ new Vue({
             value_temp3: true,
             value_temp4: true,
             value_temp5: true,
+            radio1: '今天',
+            radio2: '今天',
+            radio3: '今天',
+            curr_page: '我的种植园',
+            pageData: ["我的种植园", "我的农场", "我的公司", "我的家"]
         }
     },
     methods: {
+        open(pageData) {
+            this.$prompt('请输入空间名称', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+            }).then(({ value }) => {
+                pageData.push(value)
+                let theli = pageData.forEach(element =>
+                    console.log(element),
+                );
+                this.$message({
+                    type: 'success',
+                    message: '你添加的空间是: ' + value
+                });
+            }).catch(() => {
+                this.$message({
+                    type: 'info',
+                    message: '取消输入'
+                });
+            });
+        },
+        PageClick(str) {
+            this.curr_page = str
+        },
         handleClick() {
 
         },
@@ -40,11 +67,46 @@ new Vue({
         ChangeIclimate(value_iclimate) {
             //console.log(value_iclimate)
             const climate = document.querySelector('.climate')
+            const alert = document.querySelector('.alertData')
             if (!value_iclimate) {
                 climate.style.display = 'none'
+                alert.style.display = 'none'
+                this.value_temp = false
+                this.value_humidi = false
+                this.value_con1 = false
+                this.value_con2 = false
+                this.value_con3 = false
+                this.value_con4 = false
+                this.value_con5 = false
+                this.value_con6 = false
+                this.ChangeTemp(this.value_temp)
+                this.ChangeHumidi(this.value_humidi)
+                this.ChangeCon1(this.value_con1)
+                this.ChangeCon2(this.value_con2)
+                this.ChangeCon3(this.value_con3)
+                this.ChangeCon4(this.value_con4)
+                this.ChangeCon5(this.value_con5)
+                this.ChangeCon6(this.value_con6)
             }
             else {
                 climate.style.display = 'grid'
+                alert.style.display = 'grid'
+                this.value_temp = true
+                this.value_humidi = true
+                this.value_con1 = true
+                this.value_con2 = true
+                this.value_con3 = true
+                this.value_con4 = true
+                this.value_con5 = true
+                this.value_con6 = true
+                this.ChangeTemp(this.value_temp)
+                this.ChangeHumidi(this.value_humidi)
+                this.ChangeCon1(this.value_con1)
+                this.ChangeCon2(this.value_con2)
+                this.ChangeCon3(this.value_con3)
+                this.ChangeCon4(this.value_con4)
+                this.ChangeCon5(this.value_con5)
+                this.ChangeCon6(this.value_con6)
             }
         },
         ChangeEnergy(value_energy) {
@@ -53,7 +115,8 @@ new Vue({
         ChangeTemp(value_temp) {
             const setting1 = document.querySelector('.setting1')
 
-            if (!value_temp) {
+            if (!value_temp || !this.value_iclimate) {
+                this.value_temp = false
                 setting1.style.display = 'none'
             }
             else {
@@ -65,7 +128,8 @@ new Vue({
         },
         ChangeHumidi(value_humidi) {
             const setting2 = document.querySelector('.setting2')
-            if (!value_humidi) {
+            if (!value_humidi || !this.value_iclimate) {
+                this.value_humidi = false
                 setting2.style.display = 'none'
             }
             else {
@@ -74,7 +138,8 @@ new Vue({
         },
         ChangeCon1(value_con1) {
             const cont1 = document.querySelector('.cont1')
-            if (!value_con1) {
+            if (!value_con1 || !this.value_iclimate) {
+                this.value_con1 = false
                 cont1.style.display = 'none'
             }
             else {
@@ -83,7 +148,8 @@ new Vue({
         },
         ChangeCon2(value_con2) {
             const cont2 = document.querySelector('.cont2')
-            if (!value_con2) {
+            if (!value_con2 || !this.value_iclimate) {
+                this.value_con2 = false
                 cont2.style.display = 'none'
             }
             else {
@@ -92,7 +158,8 @@ new Vue({
         },
         ChangeCon3(value_con3) {
             const cont3 = document.querySelector('.cont3')
-            if (!value_con3) {
+            if (!value_con3 || !this.value_iclimate) {
+                this.value_con3 = false
                 cont3.style.display = 'none'
             }
             else {
@@ -101,7 +168,8 @@ new Vue({
         },
         ChangeCon4(value_con4) {
             const cont4 = document.querySelector('.cont4')
-            if (!value_con4) {
+            if (!value_con4 || !this.value_iclimate) {
+                this.value_con4 = false
                 cont4.style.display = 'none'
             }
             else {
@@ -110,7 +178,8 @@ new Vue({
         },
         ChangeCon5(value_con5) {
             const cont5 = document.querySelector('.cont5')
-            if (!value_con5) {
+            if (!value_con5 || !this.value_iclimate) {
+                this.value_con5 = false
                 cont5.style.display = 'none'
             }
             else {
@@ -119,7 +188,8 @@ new Vue({
         },
         ChangeCon6(value_con6) {
             const cont6 = document.querySelector('.cont6')
-            if (!value_con6) {
+            if (!value_con6 || !this.value_iclimate) {
+                this.value_con6 = false
                 cont6.style.display = 'none'
             }
             else {
@@ -137,3 +207,6 @@ new Vue({
         },
     }
 })
+
+document.querySelector('.pageList')
+

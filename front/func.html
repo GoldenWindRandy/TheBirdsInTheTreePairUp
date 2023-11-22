@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <!-- 引入组件库 -->
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 
 </head>
 
@@ -35,7 +36,7 @@
                     <div class="flex justify-between pr-8 mt-4 mb-4">
                         <div>
                             <div class="w-4 h-4 lighting mr-2 inline-block"></div>
-                            <div class="text-greyText inline-block">日志</div>
+                            <div class="text-greyText inline-block">备忘录</div>
                         </div>
                     </div>
                     <div class="flex justify-between pr-8 mt-4 mb-4">
@@ -43,9 +44,34 @@
                             <div class="w-4 h-4 lighting mr-2 inline-block"></div>
                             <div class="text-greyText inline-block">空间</div>
                         </div>
-                        <div class="w-6 h-6 rounded-lg bg-[#df2d2d] text-center leading-6">+</div>
+                        <template>
+                            <button type="text" class="w-6 h-6 rounded-lg bg-[#df2d2d] text-center leading-6"
+                                @click="open(pageData)">+</button>
+                        </template>
                     </div>
+                    <el-col :span="22">
+                        <el-menu default-active="1" class="el-menu-vertical-demo pageList"
+                            style="background-color:inherit;">
+                            <el-menu-item index="1" class="liList">
+                                <i class="el-icon-office-building"></i>
+                                <span slot="title" class="navi" @click="PageClick('我的种植园')">我的种植园</span>
+                            </el-menu-item>
 
+                            <el-menu-item index="2" class="liList">
+                                <i class="el-icon-office-building"></i>
+                                <span slot="title" class="navi" @click="PageClick('我的农场')">我的农场</span>
+                            </el-menu-item>
+                            <el-menu-item index="3" class="liList">
+                                <i class="el-icon-office-building"></i>
+                                <span slot="title" class="navi" @click="PageClick('我的公司')">我的公司</span>
+                            </el-menu-item>
+
+                            <el-menu-item index="4" class="liList">
+                                <i class="el-icon-office-building"></i>
+                                <span slot="title" class="navi" @click="PageClick('我的家')">我的家</span>
+                            </el-menu-item>
+                        </el-menu>
+                    </el-col>
                 </div>
                 <div class="flex-1 flex flex-col">
                     <div>
@@ -56,7 +82,7 @@
                                     <span class="dateLunar">十月初四</span>
                                 </span>
                             </div>
-                            <div class="text-xs">我的住所/小区2</div>
+                            <div class="text-xm">{{curr_page}}</div>
                         </div><template>
 
                             <el-tabs :tab-position="tabPosition" v-model="activeName" @tab-click="handleClick">
@@ -236,8 +262,8 @@
                                                         <div class="mt-2 mb-2"><span>设定温度:25°</span></div>
                                                     </div>
                                                 </div>
-                                                <div class="pl-2 humidi">
-                                                    <div class="flex justify-between items-center text-xl mt-4 mb-4">
+                                                <div class="pl-2 text-xl  humidi">
+                                                    <div class="flex justify-between items-center mt-4 mb-4">
                                                         <span>湿度调节</span>
                                                         <el-switch v-model="value_humidi" active-color="#13ce66"
                                                             inactive-color="#ff4949"
@@ -346,7 +372,7 @@
                                             + 编辑湿度检测器</div>
                                     </div>
                                 </div>
-                                <div class="w-1/5 h-[32rem] flex flex-col justify-between">
+                                <div class="w-1/5 flex flex-col">
                                     <div class="w-full h-10 bg-[#802de8] rounded-lg pl-4 mb-4 leading-10">湿度调节
                                     </div>
                                     <div class="p-2 text-xl device">
@@ -477,11 +503,11 @@
                     <div class="flex-1">
                         <div class="p-2">
                         </div>
-                        <div class="grid grid-cols-4 gap-16">
+                        <div class="grid grid-cols-4 gap-16 alertData">
                             <div class="bg-[#04ed85] h-[28rem] flex flex-col justify-end rounded-2xl"><span
                                     class="text-center pb-2">iClimate已介入</span>
-                                <div class="bg-[#f05151] w-full h-3/5 rounded-2xl flex flex-col justify-between">
-                                    <div class="pl-4 text-xl mt-2 flex flex-row justify-between items-center">
+                                <div class="bg-[#f05151] w-full h-3/5 rounded-2xl flex flex-col">
+                                    <div class="pl-4 text-xl mt-2 flex flex-row items-center">
                                         <div style="margin: center;">气温预警</div>
                                     </div>
                                     <div class="w-full h-2/5 rounded-2xl bg-[#f61f1f] p-2 pl-4">
@@ -542,7 +568,45 @@
                 <template #label>
                     <div style="font-weight: 600px;">
                         &nbsp;&nbsp;&nbsp;&nbsp;数据&nbsp;&nbsp;&nbsp;&nbsp;</div>
-                </template>数据分析与可视化</el-tab-pane>
+                </template>
+                <div class="quarter-div dataFrame1">
+                    <div id="demo1" style="width: 220px;height:220px;float:right"></div>
+                    <p class="dataTitle">平均温度</p>
+                    <p class="dataToday">{{radio1}}</p>
+                    <div class="dataLegend">
+                        <template>
+                            <el-radio v-model="radio1" label="今天">今天</el-radio>
+                            <el-radio v-model="radio1" label="过去七天">过去七天</el-radio>
+                        </template>
+                    </div>
+                </div>
+                <div class="quarter-div dataFrame2">
+                    <div id="demo2" style="width: 320px;height:220px;float:right;"></div>
+                    <p class="dataTitle">节约能源</p>
+                    <p class="dataToday">￥5,000</p>
+                    <div class="dataLegend">
+                        <template>
+                            <el-radio v-model="radio2" label="今天">今天</el-radio>
+                            <el-radio v-model="radio2" label="过去七天">过去七天</el-radio>
+                        </template>
+                    </div>
+                </div>
+                <div class="quarter-div dataFrame3">
+                    <div id="demo3" style="width: 220px;height:220px;float:right"></div>
+                    <p class="dataTitle">平均湿度</p>
+                    <p class="dataToday">{{radio3}}</p>
+                    <div class="dataLegend">
+                        <template>
+                            <el-radio v-model="radio3" label="今天" name="今天">今天</el-radio>
+                            <el-radio v-model="radio3" label="过去七天" name="过去七天">过去七天</el-radio>
+                        </template>
+                    </div>
+                </div>
+                <div class=" quarter-div dataFrame4">
+                    <p style="text-align: center;margin-top:100px;color: #eaedf7;font-weight: bold;">+ Add
+                        More</p>
+                </div>
+            </el-tab-pane>
             </el-tabs>
             </template>
         </div>
@@ -556,5 +620,201 @@
 <script src="static/js/my-axios.js"></script>
 <script src="static/js/search.js"></script>
 <script src="static/js/weather.js"></script>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('demo3'));
+
+    // 指定图表的配置项和数据
+    var option = {
+        series: [
+            {
+                type: 'gauge',
+                progress: {
+                    show: true,
+                    width: 10
+                },
+                axisLine: {
+                    lineStyle: {
+                        width: 10
+                    }
+                },
+                axisTick: {
+                    show: false
+                },
+                splitLine: {
+                    length: 8,
+                    lineStyle: {
+                        width: 2,
+                        color: '#eaf4fc'
+                    }
+                },
+                axisLabel: {
+                    distance: 10,
+                    color: '#eaf4fc',
+                    fontSize: 10
+                },
+                anchor: {
+                    show: true,
+                    showAbove: true,
+                    size: 25,
+                    itemStyle: {
+                        borderWidth: 5
+                    }
+                },
+                title: {
+                    show: false
+                },
+                detail: {
+                    valueAnimation: true,
+                    color: '#eaf4fc',
+                    fontSize: 30,
+                    offsetCenter: [0, '52%']
+                },
+                data: [
+                    {
+                        value: 52
+                    }
+                ]
+            }
+        ]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('demo2'));
+
+    let base = +new Date(2023, 11, 18);
+    let oneDay = 3600;
+    let data = [[base, Math.random() * 300]];
+    for (let i = 1; i < 20000; i++) {
+        let now = new Date((base += oneDay));
+        data.push([+now, Math.abs((Math.random() - 0.5) + data[i - 1][1])]);
+    }
+    var option = {
+        tooltip: {
+            trigger: 'axis',
+            position: function (pt) {
+                return [pt[0], '10%'];
+            }
+        },
+        xAxis: {
+            type: 'time',
+            boundaryGap: false,
+            axisTick: {
+                show: false
+            },
+            axisLabel: {
+                show: false
+            }
+        },
+        yAxis: {
+            type: 'value',
+            boundaryGap: [0, '%']
+        },
+        series: [
+            {
+                name: 'Fake Data',
+                type: 'line',
+                smooth: true,
+                symbol: 'none',
+                areaStyle: {},
+                data: data
+            }
+        ],
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('demo1'));
+
+    // 指定图表的配置项和数据
+    var option = {
+        series: [
+            {
+                type: 'gauge',
+                startAngle: 180,
+                endAngle: 0,
+                center: ['50%', '75%'],
+                radius: '90%',
+                min: 0,
+                max: 1,
+                splitNumber: 8,
+                axisLine: {
+                    lineStyle: {
+                        width: 10,
+                        color: [
+                            [0.25, '#FF6E76'],
+                            [0.5, '#FDDD60'],
+                            [0.75, '#58D9F9'],
+                            [1, '#7CFFB2']
+                        ]
+                    }
+                },
+                pointer: {
+                    icon: 'path://M12.8,0.7l12,40.1H0.7L12.8,0.7z',
+                    length: '35%',
+                    width: 6,
+                    offsetCenter: [0, '-40%'],
+                    itemStyle: {
+                        color: 'auto'
+                    }
+                },
+                axisTick: {
+                    length: 6,
+                    lineStyle: {
+                        color: 'auto',
+                        width: 2
+                    }
+                },
+                splitLine: {
+                    length: 10,
+                    lineStyle: {
+                        color: 'auto',
+                        width: 3
+                    }
+                },
+                axisLabel: {
+                    color: '#464646',
+                    fontSize: 20,
+                    distance: -60,
+                    rotate: 'tangential',
+                    formatter: function (value) {
+                        if (value === 0.875) {
+                            return '';
+                        } else if (value === 0.625) {
+                            return '';
+                        } else if (value === 0.375) {
+                            return '';
+                        } else if (value === 0.125) {
+                            return '';
+                        }
+                        return '';
+                    }
+                },
+                detail: {
+                    fontSize: 35,
+                    offsetCenter: [0, '-10%'],
+                    valueAnimation: true,
+                    formatter: function (value) {
+                        return Math.round(value * 100) + '';
+                    },
+                    color: 'inherit'
+                },
+                data: [
+                    {
+                        value: 0.32,
+                        name: ''
+                    }
+                ]
+            }
+        ]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
 
 </html>
