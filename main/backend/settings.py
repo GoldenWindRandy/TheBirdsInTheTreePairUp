@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'Login.apps.LoginConfig',
     'Product.apps.ProductConfig',
+    'DataProcess.apps.DataprocessConfig',
 ]
 
 MIDDLEWARE = [
