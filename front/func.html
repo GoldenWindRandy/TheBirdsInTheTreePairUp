@@ -14,6 +14,7 @@
     <!-- 引入组件库 -->
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -29,9 +30,151 @@
                     <div class="flex justify-between pr-8 mt-4 mb-4">
                         <div>
                             <div class="w-4 h-4 bell  mr-2 inline-block"></div>
-                            <div class="text-greyText inline-block">通知</div>
+                            <button class="text-greyText inline-block" data-bs-toggle="modal"
+                                data-bs-target=".weather-modal">天气预报</button>
                         </div>
-                        <div class="w-6 h-6 rounded-lg bg-[#486bf2] text-center leading-6">2</div>
+                        <div class="modal fade weather-modal">
+                            <!-- 中间白色区域 -->
+                            <div class="modal-dialog">
+                                <div class="modal-content" style="width: 860px;">
+                                    <div class="modal-header top">
+                                        <span style="color: black;">7日内天气预报</span>
+                                        <button type="button" class="btn-close" aria-label="Close"
+                                            data-bs-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="week-weather-box">
+                                        <ul class="week-wrap">
+                                            <li class="item">
+                                                <div class="date-box">
+                                                    <span class="dateFormat">今天</span>
+                                                    <span class="date">10月28日</span>
+                                                </div>
+                                                <img src="static/image/多云.png" alt="" class="weatherImg">
+                                                <span class="weather">多云</span>
+                                                <div class="temp">
+                                                    <span class="temNight">12</span>-
+                                                    <span class="temDay">12</span>
+                                                    <span>℃</span>
+                                                </div>
+                                                <div class="wind">
+                                                    <span class="windDirection">东南风</span>
+                                                    <span class="windPower">
+                                                        <3级 </span>
+                                                </div>
+                                            </li>
+                                            <li class="item">
+                                                <div class="date-box">
+                                                    <span class="dateFormat">今天</span>
+                                                    <span class="date">10月28日</span>
+                                                </div>
+                                                <img src="static/image/多云.png" alt="" class="weatherImg">
+                                                <span class="weather">多云</span>
+                                                <div class="temp">
+                                                    <span class="temDay">12</span>-
+                                                    <span class="temNight">12</span>
+                                                    <span>℃</span>
+                                                </div>
+                                                <div class="wind">
+                                                    <span class="windDirection">东南风</span>
+                                                    <span class="windPower">
+                                                        <3级 </span>
+                                                </div>
+                                            </li>
+                                            <li class="item">
+                                                <div class="date-box">
+                                                    <span class="dateFormat">今天</span>
+                                                    <span class="date">10月28日</span>
+                                                </div>
+                                                <img src="static/image/多云.png" alt="" class="weatherImg">
+                                                <span class="weather">多云</span>
+                                                <div class="temp">
+                                                    <span class="temDay">12</span>-
+                                                    <span class="temNight">12</span>
+                                                    <span>℃</span>
+                                                </div>
+                                                <div class="wind">
+                                                    <span class="windDirection">东南风</span>
+                                                    <span class="windPower">
+                                                        <3级 </span>
+                                                </div>
+                                            </li>
+                                            <li class="item">
+                                                <div class="date-box">
+                                                    <span class="dateFormat">今天</span>
+                                                    <span class="date">10月28日</span>
+                                                </div>
+                                                <img src="static/image/多云.png" alt="" class="weatherImg">
+                                                <span class="weather">多云</span>
+                                                <div class="temp">
+                                                    <span class="temDay">12</span>-
+                                                    <span class="temNight">12</span>
+                                                    <span>℃</span>
+                                                </div>
+                                                <div class="wind">
+                                                    <span class="windDirection">东南风</span>
+                                                    <span class="windPower">
+                                                        <3级 </span>
+                                                </div>
+                                            </li>
+                                            <li class="item">
+                                                <div class="date-box">
+                                                    <span class="dateFormat">今天</span>
+                                                    <span class="date">10月28日</span>
+                                                </div>
+                                                <img src="static/image/多云.png" alt="" class="weatherImg">
+                                                <span class="weather">多云</span>
+                                                <div class="temp">
+                                                    <span class="temDay">12</span>-
+                                                    <span class="temNight">12</span>
+                                                    <span>℃</span>
+                                                </div>
+                                                <div class="wind">
+                                                    <span class="windDirection">东南风</span>
+                                                    <span class="windPower">
+                                                        <3级 </span>
+                                                </div>
+                                            </li>
+                                            <li class="item">
+                                                <div class="date-box">
+                                                    <span class="dateFormat">今天</span>
+                                                    <span class="date">10月28日</span>
+                                                </div>
+                                                <img src="static/image/多云.png" alt="" class="weatherImg">
+                                                <span class="weather">多云</span>
+                                                <div class="temp">
+                                                    <span class="temDay">12</span>-
+                                                    <span class="temNight">12</span>
+                                                    <span>℃</span>
+                                                </div>
+                                                <div class="wind">
+                                                    <span class="windDirection">东南风</span>
+                                                    <span class="windPower">
+                                                        <3级 </span>
+                                                </div>
+                                            </li>
+                                            <li class="item">
+                                                <div class="date-box">
+                                                    <span class="dateFormat">今天</span>
+                                                    <span class="date">10月28日</span>
+                                                </div>
+                                                <img src="static/image/多云.png" alt="" class="weatherImg">
+                                                <span class="weather">多云</span>
+                                                <div class="temp">
+                                                    <span class="temDay">12</span>-
+                                                    <span class="temNight">12</span>
+                                                    <span>℃</span>
+                                                </div>
+                                                <div class="wind">
+                                                    <span class="windDirection">东南风</span>
+                                                    <span class="windPower">
+                                                        <3级 </span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="flex justify-between pr-8 mt-4 mb-4">
                         <div>
@@ -54,21 +197,21 @@
                             style="background-color:inherit;">
                             <el-menu-item index="1" class="liList">
                                 <i class="el-icon-office-building"></i>
-                                <span slot="title" class="navi" @click="PageClick('我的种植园')">我的种植园</span>
+                                <span slot="title" class="navi" @click="PageClick('大棚1')">大棚1</span>
                             </el-menu-item>
 
                             <el-menu-item index="2" class="liList">
                                 <i class="el-icon-office-building"></i>
-                                <span slot="title" class="navi" @click="PageClick('我的农场')">我的农场</span>
+                                <span slot="title" class="navi" @click="PageClick('大棚2')">大棚2</span>
                             </el-menu-item>
                             <el-menu-item index="3" class="liList">
                                 <i class="el-icon-office-building"></i>
-                                <span slot="title" class="navi" @click="PageClick('我的公司')">我的公司</span>
+                                <span slot="title" class="navi" @click="PageClick('大棚3')">大棚3</span>
                             </el-menu-item>
 
                             <el-menu-item index="4" class="liList">
                                 <i class="el-icon-office-building"></i>
-                                <span slot="title" class="navi" @click="PageClick('我的家')">我的家</span>
+                                <span slot="title" class="navi" @click="PageClick('大棚4')">大棚4</span>
                             </el-menu-item>
                         </el-menu>
                     </el-col>
@@ -109,22 +252,6 @@
                                                         </el-switch>
                                                     </div>
                                                     <div class="climate">
-                                                        <div class="h-16 mb-4 mt-4">
-                                                            <div class="flex justify-between items-center mb-2">
-                                                                <div class="text-xs text-white opacity-30">温度传感器</div>
-                                                                <div><span class="green-circle mr-2"></span><span
-                                                                        class="font-bold">状态</span></div>
-                                                            </div>
-                                                            <div class="text-xl font-bold">平均室温：28°</div>
-                                                        </div>
-                                                        <div class="h-16 mb-4 mt-4">
-                                                            <div class="flex justify-between items-center mb-2">
-                                                                <div class="text-xs text-white opacity-30">湿度传感器</div>
-                                                                <div><span class="green-circle mr-2"></span><span
-                                                                        class="font-bold">状态</span></div>
-                                                            </div>
-                                                            <div class="text-xl font-bold">平均湿度：66%</div>
-                                                        </div>
                                                         <div class="flex justify-between mt-4 mb-4"><span
                                                                 class="text-xl font-bold">节能模式</span>
                                                             <el-switch v-model="value_energy" active-color="#13ce66"
@@ -137,6 +264,9 @@
                                                 <div class="mt-8 text-greyText">
                                                     <p>iClimate旨为用户提供智能、便捷和个性化的温控解决方案。打开该功能iClimate将学习用户使用习惯，降低用户能源消耗，提供智能预警功能以及记录提供数据分析图标。
                                                     </p>
+                                                </div>
+                                                <div class="mt-8 text-greyText">
+                                                    <img src="static/image/back.png" alt="">
                                                 </div>
                                             </div>
                                             <div class="w-1/5">
@@ -217,25 +347,25 @@
                                             </div>
                                             <div class="w-1/5 h-[32rem] flex flex-col justify-between">
                                                 <div class="w-full h-10 bg-[#802de8] rounded-lg pl-4 mb-4 leading-10">
-                                                    房间</div>
+                                                    大棚</div>
                                                 <div class="w-full h-32 border rounded-2xl p-6 bed-room">
-                                                    <div class="text-xl">卧室</div>
-                                                    <div><span class=" text-sm mr-2 text-greyText">2台设备</span><span
+                                                    <div class="text-xl">大棚1</div>
+                                                    <div><span class=" text-sm mr-2 text-greyText"
+                                                            style="color:white">2台设备</span><span
                                                             class="green-circle"></span></div>
                                                 </div>
                                                 <div class="w-full h-32 border rounded-2xl p-6 living-room">
-                                                    <div class="text-xl">客厅</div>
-                                                    <div><span class=" text-sm mr-2 text-greyText">4台设备</span><span
+                                                    <div class="text-xl">大棚2</div>
+                                                    <div><span class=" text-sm mr-2 text-greyText"
+                                                            style="color:white">4台设备</span><span
                                                             class="green-circle"></span></div>
                                                 </div>
                                                 <div class="w-full h-32 border rounded-2xl p-6 kitchen">
-                                                    <div class="text-xl">厨房</div>
-                                                    <div><span class=" text-sm mr-2 text-greyText">4台设备</span><span
+                                                    <div class="text-xl">大棚3</div>
+                                                    <div><span class=" text-sm mr-2 text-greyText"
+                                                            style="color:white">4台设备</span><span
                                                             class="green-circle"></span></div>
                                                 </div>
-                                                <div
-                                                    class="hover:cursor-pointer select-none w-full h-10 bg-transparent text-[#486bf2] rounded-lg text-center leading-10 border border-dashed mt-2">
-                                                    + 编辑房间</div>
                                             </div>
                                             <div class="w-1/5 flex flex-col">
                                                 <div class="w-full h-10 bg-rose-600 rounded-lg pl-4 mb-4 leading-10">
@@ -275,7 +405,6 @@
                                                         <div class=" text-greyText text-xs mb-2">除（加）湿器</div><span
                                                             class="text-xl">设定湿度:30%</span>
                                                     </div>
-
                                                     <div
                                                         class="hover:cursor-pointer select-none w-full h-10 bg-transparent text-[#486bf2] rounded-lg text-center leading-10 border border-dashed mt-2">
                                                         + 编辑设置</div>
@@ -298,7 +427,7 @@
                                     <div class="w-full h-10 bg-[#486bf2] rounded-lg pl-4 mb-4 leading-10">温度检测器
                                     </div>
                                     <div class="p-2 text-xl device">
-                                        <div class="flex justify-between items-center"><span>卧室</span><span
+                                        <div class="flex justify-between items-center"><span>温度设备1</span><span
                                                 class="flex items-center"><span class="green-circle mr-2"></span><span
                                                     class="font-bold text-xs">状态</span></span></div>
                                         <div class="flex items-center mt-4 mb-4">
@@ -308,7 +437,7 @@
                                     </div>
                                     <br>
                                     <div class="p-2 text-xl device">
-                                        <div class="flex justify-between items-center"><span>客厅</span><span
+                                        <div class="flex justify-between items-center"><span>温度设备2</span><span
                                                 class="flex items-center"><span class="green-circle mr-2"></span><span
                                                     class="font-bold text-xs">状态</span></span></div>
                                         <div class="flex items-center mt-4 mb-4">
@@ -318,7 +447,7 @@
                                     </div>
                                     <br>
                                     <div class="p-2 text-xl device">
-                                        <div class="flex justify-between items-center"><span>厨房</span><span
+                                        <div class="flex justify-between items-center"><span>温度设备3</span><span
                                                 class="flex items-center"><span class="green-circle mr-2"></span><span
                                                     class="font-bold text-xs">状态</span></span></div>
                                         <div class="flex items-center mt-4 mb-4">
@@ -327,17 +456,12 @@
                                         </div>
                                     </div>
                                     <br>
-                                    <div class="pl-2">
-                                        <div
-                                            class="hover:cursor-pointer select-none w-full h-10 bg-transparent text-[#486bf2] rounded-lg text-center leading-10 border border-dashed mt-4">
-                                            + 编辑温度检测器</div>
-                                    </div>
                                 </div>
                                 <div class="w-1/5">
                                     <div class="w-full h-10 bg-[#00a6db] rounded-lg pl-4 mb-4 leading-10">湿度检测器
                                     </div>
                                     <div class="p-2 text-xl device">
-                                        <div class="flex justify-between items-center"><span>卧室</span><span
+                                        <div class="flex justify-between items-center"><span>湿度设备1</span><span
                                                 class="flex items-center"><span class="green-circle mr-2"></span><span
                                                     class="font-bold text-xs">状态</span></span></div>
                                         <div class="flex items-center mt-4 mb-4">
@@ -347,7 +471,7 @@
                                     </div>
                                     <br>
                                     <div class="p-2 text-xl device">
-                                        <div class="flex justify-between items-center"><span>客厅</span><span
+                                        <div class="flex justify-between items-center"><span>湿度设备2</span><span
                                                 class="flex items-center"><span class="green-circle mr-2"></span><span
                                                     class="font-bold text-xs">状态</span></span></div>
                                         <div class="flex items-center mt-4 mb-4">
@@ -357,7 +481,7 @@
                                     </div>
                                     <br>
                                     <div class="p-2 text-xl device">
-                                        <div class="flex justify-between items-center"><span>厨房</span><span
+                                        <div class="flex justify-between items-center"><span>湿度设备3</span><span
                                                 class="flex items-center"><span class="green-circle mr-2"></span><span
                                                     class="font-bold text-xs">状态</span></span></div>
                                         <div class="flex items-center mt-4 mb-4">
@@ -366,19 +490,14 @@
                                         </div>
                                     </div>
                                     <br>
-                                    <div class="pl-2">
-                                        <div
-                                            class="hover:cursor-pointer select-none w-full h-10 bg-transparent text-[#486bf2] rounded-lg text-center leading-10 border border-dashed mt-4">
-                                            + 编辑湿度检测器</div>
-                                    </div>
                                 </div>
                                 <div class="w-1/5 flex flex-col">
                                     <div class="w-full h-10 bg-[#802de8] rounded-lg pl-4 mb-4 leading-10">湿度调节
                                     </div>
                                     <div class="p-2 text-xl device">
-                                        <div class="flex justify-between items-center"><span>卧室</span><span
+                                        <div class="flex justify-between items-center"><span>湿度设备1</span><span
                                                 class="flex items-center"><span class="green-circle mr-2"></span><span
-                                                    class="font-bold text-xs">状态</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    class="font-bold text-xs">状态</span>&nbsp;
                                                 <el-switch v-model="value_con1" active-color="#13ce66"
                                                     inactive-color="#ff4949" @change="ChangeCon1(value_con1)">
                                                 </el-switch></span></div>
@@ -391,9 +510,9 @@
                                     </div>
                                     <br>
                                     <div class="p-2 text-xl device">
-                                        <div class="flex justify-between items-center"><span>客厅</span><span
+                                        <div class="flex justify-between items-center"><span>湿度设备2</span><span
                                                 class="flex items-center"><span class="green-circle mr-2"></span><span
-                                                    class="font-bold text-xs">状态</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    class="font-bold text-xs">状态</span>&nbsp;
                                                 <el-switch v-model="value_con2" active-color="#13ce66"
                                                     inactive-color="#ff4949" @change="ChangeCon2(value_con2)">
                                                 </el-switch></span></div>
@@ -406,9 +525,9 @@
                                     </div>
                                     <br>
                                     <div class="p-2 text-xl device">
-                                        <div class="flex justify-between items-center"><span>厨房</span><span
+                                        <div class="flex justify-between items-center"><span>湿度设备3</span><span
                                                 class="flex items-center"><span class="green-circle mr-2"></span><span
-                                                    class="font-bold text-xs">状态</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    class="font-bold text-xs">状态</span>&nbsp;
                                                 <el-switch v-model="value_con3" active-color="#13ce66"
                                                     inactive-color="#ff4949" @change="ChangeCon3(value_con3)">
                                                 </el-switch></span></div>
@@ -420,18 +539,13 @@
                                         </div>
                                     </div>
                                     <br>
-                                    <div class="pl-2">
-                                        <div
-                                            class="hover:cursor-pointer select-none w-full h-10 bg-transparent text-[#486bf2] rounded-lg text-center leading-10 border border-dashed mt-4">
-                                            + 编辑设定湿度</div>
-                                    </div>
                                 </div>
                                 <div class="w-1/5 flex flex-col">
                                     <div class="w-full h-10 bg-rose-600 rounded-lg pl-4 mb-4 leading-10">温度调节</div>
                                     <div class="p-2 text-xl device">
-                                        <div class="flex justify-between items-center"><span>卧室</span><span
+                                        <div class="flex justify-between items-center"><span>温度设备1</span><span
                                                 class="flex items-center"><span class="green-circle mr-2"></span><span
-                                                    class="font-bold text-xs">状态</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    class="font-bold text-xs">状态</span>&nbsp;
                                                 <el-switch v-model="value_con4" active-color="#13ce66"
                                                     inactive-color="#ff4949" @change="ChangeCon4(value_con4)">
                                                 </el-switch></span></div>
@@ -448,9 +562,9 @@
                                     </div>
                                     <br>
                                     <div class="p-2 text-xl device">
-                                        <div class="flex justify-between items-center"><span>客厅</span><span
+                                        <div class="flex justify-between items-center"><span>温度设备2</span><span
                                                 class="flex items-center"><span class="green-circle mr-2"></span><span
-                                                    class="font-bold text-xs">状态</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    class="font-bold text-xs">状态</span>&nbsp;
                                                 <el-switch v-model="value_con5" active-color="#13ce66"
                                                     inactive-color="#ff4949" @change="ChangeCon5(value_con5)">
                                                 </el-switch></span></div>
@@ -467,9 +581,9 @@
                                     </div>
                                     <br>
                                     <div class="p-2 text-xl device">
-                                        <div class="flex justify-between items-center"><span>厨房</span><span
+                                        <div class="flex justify-between items-center"><span>温度设备3</span><span
                                                 class="flex items-center"><span class="green-circle mr-2"></span><span
-                                                    class="font-bold text-xs">状态</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    class="font-bold text-xs">状态</span>&nbsp;
                                                 <el-switch v-model="value_con6" active-color="#13ce66"
                                                     inactive-color="#ff4949" @change="ChangeCon6(value_con6)">
                                                 </el-switch></span></div>
@@ -485,11 +599,6 @@
                                         </div>
                                     </div>
                                     <br>
-                                    <div class="pl-2">
-                                        <div
-                                            class="hover:cursor-pointer select-none w-full h-10 bg-transparent text-[#486bf2] rounded-lg text-center leading-10 border border-dashed mt-4">
-                                            + 编辑设定温度</div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -511,12 +620,12 @@
                                         <div style="margin: center;">气温预警</div>
                                     </div>
                                     <div class="w-full h-2/5 rounded-2xl bg-[#f61f1f] p-2 pl-4">
-                                        <div>客厅</div>
+                                        <div>温度设备1</div>
                                         <div class="fire w-5 h-6 "></div>
                                         <div>检测温度: 30°</div>
                                     </div>
                                     <div class="w-full h-2/5 rounded-2xl bg-[#f61f1f] p-2 pl-4">
-                                        <div>厨房</div>
+                                        <div>温度设备2</div>
                                         <div class="fire w-5 h-6"></div>
                                         <div>检测温度: 32°</div>
                                     </div>
@@ -526,7 +635,7 @@
                                         <div style="margin: center;">湿度预警</div>
                                     </div>
                                     <div class="bg-[#e68637] w-full flex-1 rounded-2xl p-2 pl-4">
-                                        <div>卧室</div>
+                                        <div>湿度设备1</div>
                                         <div class="drop-warn w-5 h-7"></div>
                                         <div>检测湿度: 35%</div>
                                     </div>
@@ -539,12 +648,12 @@
                                         <div style="margin: center;">温度检测器</div>
                                     </div>
                                     <div class="w-full h-2/5 rounded-2xl bg-[#926829] p-2 pl-4">
-                                        <div>儿童房</div>
+                                        <div>温度设备1</div>
                                         <div class="disk w-4 h-4"></div>
                                         <div>检测温度: 90°</div>
                                     </div>
                                     <div class="w-full h-2/5 rounded-2xl bg-[#926829] p-2 pl-4">
-                                        <div>书房</div>
+                                        <div>温度设备2</div>
                                         <div class="break w-5 h-6"></div>
                                         <div>检测温度: ~~°</div>
                                     </div>
@@ -554,7 +663,7 @@
                                         <div style="margin: center;">湿度检测器</div>
                                     </div>
                                     <div class="bg-[#e68637] w-full flex-1 rounded-2xl p-2 pl-4">
-                                        <div>厕所</div>
+                                        <div>湿度设备1</div>
                                         <div class="break-dark w-5 h-7"></div>
                                         <div>检测湿度: ~~%</div>
                                     </div>
@@ -576,18 +685,18 @@
                     <div class="dataLegend">
                         <template>
                             <el-radio v-model="radio1" label="今天">今天</el-radio>
-                            <el-radio v-model="radio1" label="过去七天">过去七天</el-radio>
+                            <el-radio v-model="radio1" label="过去一月">过去一月</el-radio>
                         </template>
                     </div>
                 </div>
                 <div class="quarter-div dataFrame2">
                     <div id="demo2" style="width: 320px;height:220px;float:right;"></div>
-                    <p class="dataTitle">节约能源</p>
-                    <p class="dataToday">￥5,000</p>
+                    <p class="dataTitle">操作次数</p>
+                    <p class="dataToday">{{radio2}}</p>
                     <div class="dataLegend">
                         <template>
                             <el-radio v-model="radio2" label="今天">今天</el-radio>
-                            <el-radio v-model="radio2" label="过去七天">过去七天</el-radio>
+                            <el-radio v-model="radio2" label="过去一月">过去一月</el-radio>
                         </template>
                     </div>
                 </div>
@@ -598,13 +707,9 @@
                     <div class="dataLegend">
                         <template>
                             <el-radio v-model="radio3" label="今天" name="今天">今天</el-radio>
-                            <el-radio v-model="radio3" label="过去七天" name="过去七天">过去七天</el-radio>
+                            <el-radio v-model="radio3" label="过去一月" name="过去一月">过去一月</el-radio>
                         </template>
                     </div>
-                </div>
-                <div class=" quarter-div dataFrame4">
-                    <p style="text-align: center;margin-top:100px;color: #eaedf7;font-weight: bold;">+ Add
-                        More</p>
                 </div>
             </el-tab-pane>
             </el-tabs>

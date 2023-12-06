@@ -33,7 +33,7 @@ document.querySelector('.btn-login').addEventListener('click', () => {
 
     // 基于axios提交用户名和密码
     axios({
-        url: 'http://127.0.0.1:5500/aaa/user/login/',
+        url: '/aaa/user/login/',
         method: 'post',
         data: {
             username,
@@ -44,9 +44,9 @@ document.querySelector('.btn-login').addEventListener('click', () => {
         alertFn(result.data.data.reseaion, true)
         window.location.replace("./func.html")
     }).catch(error => {
-        console.log(error)
+        //console.log(error)
         //处理错误信息
-        alertFn("用户名或密码错误", false)
+        alertFn(error.response.data.reseaion, false)
     })
 })
 const regModalDom = document.querySelector('.register-modal')
@@ -108,7 +108,7 @@ new Vue({
                     const username = this.ruleForm.user;
                     const password = this.ruleForm.pass;
                     axios({
-                        url: 'http://127.0.0.1:5500/aaa/user/register/',
+                        url: '/aaa/user/register/',
                         method: 'post',
                         data: {
                             username,
@@ -121,7 +121,7 @@ new Vue({
                         regModal.hide()
                     }).catch(error => {
                         //console.log(error)
-                        alert("账号被占用")
+                        alert(error.response.data.reseaion)
                     })
                 } else {
                     console.log('error submit!!');

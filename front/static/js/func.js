@@ -23,7 +23,7 @@ new Vue({
             radio1: '今天',
             radio2: '今天',
             radio3: '今天',
-            curr_page: '我的种植园',
+            curr_page: '大棚1',
             pageData: ["我的种植园", "我的农场", "我的公司", "我的家"]
         }
     },
@@ -207,6 +207,4 @@ new Vue({
         },
     }
 })
-
-document.querySelector('.pageList')
 
