@@ -206,4 +206,3 @@ def Return_Data(request):
         Info.append(item_List)
     # 返回一个JsonResponse对象，其中包含Info列表
     return JsonResponse(Info,safe=False)
-
