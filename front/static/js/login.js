@@ -46,7 +46,7 @@ document.querySelector('.btn-login').addEventListener('click', () => {
     }).catch(error => {
         //console.log(error)
         //处理错误信息
-        alertFn(error.response.data.reseaion, false)
+        alertFn(error.response.data.data, false)
     })
 })
 const regModalDom = document.querySelector('.register-modal')
@@ -121,7 +121,7 @@ new Vue({
                         regModal.hide()
                     }).catch(error => {
                         //console.log(error)
-                        alert(error.response.data.reseaion)
+                        alert(error.response.data.data)
                     })
                 } else {
                     console.log('error submit!!');

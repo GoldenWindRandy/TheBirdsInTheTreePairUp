@@ -4,13 +4,18 @@ new Vue({
 
         return {
             value: true,
+            dialogVisible: false,
             tabPosition: 'top',
+            QA: [],
+            input: "",
             activeName: 'iclimate',
             value_iclimate: true,
             value_energy: true,
             value_temp: true,
             value_temp2: true,
             value_humidi: true,
+            value_air: true,
+            value_light: true,
             value_con1: true,
             value_con2: true,
             value_con3: true,
@@ -23,11 +28,46 @@ new Vue({
             radio1: '今天',
             radio2: '今天',
             radio3: '今天',
+            radio4: '今天',
             curr_page: '大棚1',
-            pageData: ["我的种植园", "我的农场", "我的公司", "我的家"]
+            pageData: ["大棚1", "大棚2", "大棚3"],
+            info: '',
+
         }
     },
+    created() {
+        axios({
+            url: '/aaa/Data/sendData/',
+        }).then(result => {
+            console.log(result.data)
+            this.info = result.data
+            //console.log(this.info[0][0].HUMIDITY.id)
+        }).catch(error => {
+            console.log(error)
+        })
+    },
     methods: {
+        addQuestion() {
+            if (this.input === "") {
+                return;
+            }
+            this.QA.push(this.input);
+            let anwser = this.input;
+            anwser = anwser.replace("吗", "");
+            anwser = anwser.replace("?", "!");
+            anwser = anwser.replace("？", "!");
+            anwser = anwser.replace("? ", "!");
+            anwser = anwser.replace("？ ", "!");
+            anwser = anwser.replace("你", "我");
+            anwser = anwser.replace("今天星期几", "今天星期六");
+            this.QA.push(anwser);
+            this.input = "";
+        },
+        dialogQuit() {
+            this.dialogVisible = false;
+            this.QA = [];
+            this.input = "";
+        },
         open(pageData) {
             this.$prompt('请输入空间名称', '提示', {
                 confirmButtonText: '确定',
@@ -73,6 +113,8 @@ new Vue({
                 alert.style.display = 'none'
                 this.value_temp = false
                 this.value_humidi = false
+                this.value_air = false
+                this.value_light = false
                 this.value_con1 = false
                 this.value_con2 = false
                 this.value_con3 = false
@@ -81,6 +123,8 @@ new Vue({
                 this.value_con6 = false
                 this.ChangeTemp(this.value_temp)
                 this.ChangeHumidi(this.value_humidi)
+                this.ChangeAir(this.value_air)
+                this.ChangeLight(this.value_light)
                 this.ChangeCon1(this.value_con1)
                 this.ChangeCon2(this.value_con2)
                 this.ChangeCon3(this.value_con3)
@@ -93,6 +137,8 @@ new Vue({
                 alert.style.display = 'grid'
                 this.value_temp = true
                 this.value_humidi = true
+                this.value_air = true
+                this.value_light = true
                 this.value_con1 = true
                 this.value_con2 = true
                 this.value_con3 = true
@@ -101,6 +147,8 @@ new Vue({
                 this.value_con6 = true
                 this.ChangeTemp(this.value_temp)
                 this.ChangeHumidi(this.value_humidi)
+                this.ChangeAir(this.value_air)
+                this.ChangeLight(this.value_light)
                 this.ChangeCon1(this.value_con1)
                 this.ChangeCon2(this.value_con2)
                 this.ChangeCon3(this.value_con3)
@@ -134,6 +182,26 @@ new Vue({
             }
             else {
                 setting2.style.display = 'grid'
+            }
+        },
+        ChangeAir(value_air) {
+            const setting3 = document.querySelector('.setting3')
+            if (!value_air || !this.value_air) {
+                this.value_air = false
+                setting3.style.display = 'none'
+            }
+            else {
+                setting3.style.display = 'grid'
+            }
+        },
+        ChangeLight(value_light) {
+            const setting4 = document.querySelector('.setting4')
+            if (!value_light || !this.value_light) {
+                this.value_light = false
+                setting4.style.display = 'none'
+            }
+            else {
+                setting4.style.display = 'grid'
             }
         },
         ChangeCon1(value_con1) {
