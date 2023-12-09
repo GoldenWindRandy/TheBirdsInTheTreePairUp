@@ -14,6 +14,19 @@ SensorInformation = {}
 # 存储传感器温度和湿度信息。
 TemperatureInformation = {}
 
+air_fake = {
+                'id': 1663075080656568322,
+                'chs_name': '空气质量', 
+                'controllable': False,
+                'value': '20', 
+                'update_time': '2023-05-29 14:49:32'}
+
+light_fake = {
+                'id': 1663075080656568322,
+                'chs_name': '光照强度', 
+                'controllable': False,
+                'value': '500', 
+                'update_time': '2023-05-29 14:49:32'}
 
 # 把时间戳转换成毫秒时间
 def timestamp_to_timestr(timestamp):
@@ -179,7 +192,7 @@ def merge_Properties(item, TemperatureInformation):
     # # 获取开关信息
     # Power = Get_Power(item, TemperatureInformation)
     # 将温度、湿度、开关信息合并到字典中
-    dict = {"HUMIDITY": Humidity, "TEMPERATURE": Temperature}
+    dict = {"HUMIDITY": Humidity, "TEMPERATURE": Temperature, "AIR QUALITY" : air_fake, "LIGHT INTENSITY" : light_fake}
     # 返回合并后的字典
     return dict
 
@@ -206,3 +219,5 @@ def Return_Data(request):
         Info.append(item_List)
     # 返回一个JsonResponse对象，其中包含Info列表
     return JsonResponse(Info,safe=False)
+    #调试用例
+    # return Info 
