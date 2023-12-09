@@ -59,7 +59,8 @@ new Vue({
             anwser = anwser.replace("? ", "!");
             anwser = anwser.replace("？ ", "!");
             anwser = anwser.replace("你", "我");
-            anwser = anwser.replace("今天星期几", "今天星期六");
+            anwser = anwser.replace("今天星期几", "今天星期五");
+            anwser = anwser.replace("明天星期几", "明天星期六");
             this.QA.push(anwser);
             this.input = "";
         },
