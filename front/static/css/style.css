@@ -16,6 +16,111 @@ body {
     overflow: scroll;
 }
 
+.weather-modal {
+    width: 100%;
+    top: 50%;
+    left: 36%;
+    transform: translate(-50%, -50%);
+}
+
+/* 周天气预报 */
+.week-weather-box {
+    height: 382px;
+    border-radius: 10px;
+    background-color: #fff;
+    width: 855px;
+    margin: 30px auto;
+    padding: 30px;
+}
+
+.week-weather-box .title {
+    font-size: 20px;
+    color: #3A475A;
+    letter-spacing: 0;
+    font-weight: 600;
+}
+
+/* 列表 */
+.week-wrap {
+    display: flex;
+    margin: 0 auto;
+}
+
+.week-wrap .item {
+    width: 150px;
+    height: 254px;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.week-wrap .item:hover {
+    background: #F7FAFF;
+    border-radius: 10px;
+}
+
+.week-wrap .item span {
+    color: #393F48;
+}
+
+.week-wrap .item .date-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.week-wrap .item .date-box .dateFormat {
+    font-size: 16px;
+    color: #393F48;
+    letter-spacing: 0;
+    text-align: center;
+    font-weight: 400;
+}
+
+.week-wrap .item .date-box .date {
+    font-size: 16px;
+    color: #88909D;
+    letter-spacing: 0;
+    text-align: center;
+    font-weight: 400;
+}
+
+.week-wrap .item img {
+    width: 46px;
+    height: 46px;
+    margin: 12px 0 12px;
+}
+
+.week-wrap .item .weather {
+    font-size: 16px;
+    color: #393F48;
+    letter-spacing: 0;
+    text-align: center;
+    font-weight: 400;
+    margin-bottom: 4px;
+}
+
+.week-wrap .item .temp {
+    font-size: 14px;
+    color: #393F48;
+    letter-spacing: 0;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.week-wrap .item .wind span {
+    font-size: 14px;
+    color: #676C74;
+    letter-spacing: 0;
+    text-align: center;
+    font-weight: 400;
+}
+
 .liList {
     width: 100%;
     height: 60px;
@@ -224,19 +329,19 @@ input:focus {
 }
 
 .bed-room {
-    background-image: url("../image/p5.png");
+    background-image: url("../image/room1.jpg");
     background-position: top;
     background-size: cover;
 }
 
 .living-room {
-    background-image: url("../image/p6.png");
+    background-image: url("../image/room2.jpg");
     background-position: top;
     background-size: cover;
 }
 
 .kitchen {
-    background-image: url("../image/p7.png");
+    background-image: url("../image/room3.jpg");
     background-position: top;
     background-size: cover;
 }
