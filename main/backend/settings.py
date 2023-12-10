@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'Login.apps.LoginConfig',
     'Product.apps.ProductConfig',
     'DataProcess.apps.DataprocessConfig',
+    'langchain_model.apps.LangchainModelConfig',
 ]
 
 MIDDLEWARE = [

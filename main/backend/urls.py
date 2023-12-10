@@ -24,6 +24,7 @@ urlpatterns = [
     path('user/',include('Login.urls')),
     path('product/',include('Product.urls')),
     path("Data/", include("DataProcess.urls")),
+    path("langchain/", include("langchain_model.urls")),
 ]
 
 if settings.DEBUG:

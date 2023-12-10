@@ -3,7 +3,8 @@ from django.shortcuts import render
 import requests
 from django.http import JsonResponse
 import datetime as dt
-
+import copy
+import random
 # 定义接口的URL，替换为你想要查询的接口地址
 baseUrl = "http://47.99.94.249:20000"
 token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsaWNlbnNlIjoiTUFERSBCWSBZV0VWT0VSIiwiYXVkIjpbInl3emoiXSwidXNlcl9pZCI6MTcyNjU1NTEwOTA5MjQwOTM0NSwidXNlcl9tb2JpbGUiOiIxODA5MzU2ODA0NyIsInVzZXJfbmFtZSI6IjE4MDkzNTY4MDQ3Iiwic2NvcGUiOlsiYWNjb3VudHMiLCJob3VzZXMiXSwiZXhwIjoyNzAwNDc3ODU2LCJhdXRob3JpdGllcyI6WyJBRE1JTiJdLCJqdGkiOiI4MDE2Njk1Ni0xNzBhLTRkZGUtOWMwOS1iYzgwYTI5MzdkYTIiLCJjbGllbnRfaWQiOiJjb20ueXdldm9lci55d3pqLnVzZXIifQ.L-WP10Hene7y-PrfIxTmRvAZI_b6qDJ72HYdbH703bg"
@@ -17,14 +18,14 @@ TemperatureInformation = {}
 air_fake = {
                 'id': 1663075080656568322,
                 'chs_name': '空气质量', 
-                'controllable': False,
+                'controllable': True,
                 'value': '20', 
                 'update_time': '2023-05-29 14:49:32'}
 
 light_fake = {
                 'id': 1663075080656568322,
                 'chs_name': '光照强度', 
-                'controllable': False,
+                'controllable': True,
                 'value': '500', 
                 'update_time': '2023-05-29 14:49:32'}
 
@@ -192,10 +193,17 @@ def merge_Properties(item, TemperatureInformation):
     # # 获取开关信息
     # Power = Get_Power(item, TemperatureInformation)
     # 将温度、湿度、开关信息合并到字典中
-    dict = {"HUMIDITY": Humidity, "TEMPERATURE": Temperature, "AIR QUALITY" : air_fake, "LIGHT INTENSITY" : light_fake}
+    dict = {"HUMIDITY": Humidity, "TEMPERATURE": Temperature, "AIR QUALITY" : copy.deepcopy(air_fake), "LIGHT INTENSITY" : copy.deepcopy(light_fake)}
     # 返回合并后的字典
     return dict
 
+#后期删除该函数
+def makedata(Info):
+    for i in range(0,8):
+        Info[i][0]["AIR QUALITY"]["value"] = str(int(Info[i][0]["AIR QUALITY"]["value"])+random.randint(0, 10))
+        Info[i][0]["LIGHT INTENSITY"]["value"] = str(int(Info[i][0]["LIGHT INTENSITY"]["value"])+random.randint(0, 10))
+    return Info
+    
 
 # 定义一个函数，用于返回数据
 def Return_Data(request):
@@ -217,6 +225,8 @@ def Return_Data(request):
         item_List.append(merged_dict)
         # 将item_List列表添加到Info列表中
         Info.append(item_List)
+        # 后期删除这一行
+    Info = makedata(Info) 
     # 返回一个JsonResponse对象，其中包含Info列表
     return JsonResponse(Info,safe=False)
     #调试用例
