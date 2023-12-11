@@ -1,4 +1,3 @@
-
 function getWeather(cityCode) {
     //  获取天气数据
     myAxios({
@@ -11,6 +10,7 @@ function getWeather(cityCode) {
         const wObj = result.data
         const twObj = wObj.todayWeather
         const item = wObj.dayForecast[0]
+        // console.log(wObj.area)
         // 数据展示到页面
         // 阳历和农历日期
         const dateStr = `<span class="dateShort">${wObj.date}</span>
@@ -108,9 +108,8 @@ function getWeather(cityCode) {
 
 // 默认进入网页-就要获取天气数据
 getWeather('310100')
-
 document.querySelector('.search-city').addEventListener('input', (e) => {
-    console.log(e.target.value)
+    //console.log(e.target.value)
     myAxios({
         url: 'http://hmajax.itheima.net/api/weather/city',
         params: {
@@ -128,7 +127,7 @@ document.querySelector('.search-city').addEventListener('input', (e) => {
 document.querySelector('.search-list').addEventListener('click', e => {
     if (e.target.classList.contains('city-item')) {
         const cityCode = e.target.dataset.code
-        //console.log(e.target.textContent)
+        // console.log(e.target.dataset.code)
         getWeather(cityCode)
         document.querySelector('.search-city').value = ''
     }
