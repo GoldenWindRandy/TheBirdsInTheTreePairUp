@@ -14,7 +14,6 @@
     <!-- 引入组件库 -->
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
-    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.min.js"></script>
     <style scoped>
         .red-status {
             display: inline-block;
@@ -324,7 +323,32 @@
                                         <p>更新时间：{{info[count-1][0].TEMPERATURE.update_time}}</p>
                                     </div>
                                     <br>
-                                    <div class="w-full h-10 bg-rose-600 rounded-lg pl-4 mb-4 leading-10">温度调节</div>
+                                    <div class="w-full h-10 bg-rose-600 rounded-lg pl-4 mb-4 leading-10">温度调节
+                                        <button type="button" class="el-icon-setting" data-bs-toggle="modal"
+                                            data-bs-target=".temp-box"></button>
+                                    </div>
+                                    <div class="modal fade temp-box" style="color:black">
+                                        <div class="modal-dialog">
+                                            <!--弹框内容-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">温度调节</h5>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <label for="amount">设定温度：</label>
+                                                    <input type="number" id="amount_temp" min="0" max="38"
+                                                        style="height: 50px;width: 360px;font-size: 20px;" step="0.1"
+                                                        :value="setTemp" />
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal" style="color:black">取消</button>
+                                                    <button type="button" class="btn btn-primary" @click="open_temp"
+                                                        style="color:black">修改</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="p-2 text-xl device">
                                         <div class="flex justify-between items-center"><span>开关</span><span
                                                 class="flex items-center"> <span
@@ -341,6 +365,7 @@
                                                     inactive-color="#ff4949"
                                                     @change="ChangeTemp5(value_temp5)"></el-switch>&nbsp;&nbsp;
                                                 <span class="warm" style="height: 25px;width: 25px;"></span>
+                                                &nbsp;&nbsp;<p class="mt-2 mb-2">设定温度:{{setTemp}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -361,14 +386,39 @@
                                             <span class="font-bold text-xs">状态</span>
                                         </span>
                                         <div class="flex items-center mt-4 mb-4">
-                                            <img src="static/image/temp.jpg" style="height:25px;width: 25px;" alt="">
+                                            <img src="static/image/de_hum.jpg" style="height:25px;width: 25px;" alt="">
                                             &nbsp;&nbsp;<p class="mt-2 mb-2">检测湿度: {{info[count-1][0].HUMIDITY.value}}
                                             </p>
                                         </div>
                                         <p>更新时间：{{info[count-1][0].HUMIDITY.update_time}}</p>
                                     </div>
                                     <br>
-                                    <div class="w-full h-10 bg-rose-600 rounded-lg pl-4 mb-4 leading-10">湿度调节</div>
+                                    <div class="w-full h-10 bg-rose-600 rounded-lg pl-4 mb-4 leading-10">湿度调节
+                                        <button type="button" class="el-icon-setting" data-bs-toggle="modal"
+                                            data-bs-target=".hum-box"></button>
+                                    </div>
+                                    <div class="modal fade hum-box" style="color:black">
+                                        <div class="modal-dialog">
+                                            <!--弹框内容-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">湿度调节</h5>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <label for="amount">设定湿度：</label>
+                                                    <input type="number" id="amount_hum" min="30" max="180"
+                                                        style="height: 50px;width: 360px;font-size: 20px;" step="1"
+                                                        :value="setHum" />
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal" style="color:black">取消</button>
+                                                    <button type="button" class="btn btn-primary" @click="open_hum"
+                                                        style="color:black">修改</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="p-2 text-xl device">
                                         <div class="flex justify-between items-center"><span>开关</span><span
                                                 class="flex items-center"> <span
@@ -378,12 +428,9 @@
                                                     inactive-color="#ff4949" @change="ChangeCon2(value_con2)">
                                                 </el-switch></span></div>
                                         <div class="cont2">
-                                            <div class="flex items-center mt-4 mb-4"><span class="cool"
-                                                    style="height: 25px;width: 25px;"></span>&nbsp;&nbsp;
-                                                <el-switch v-model="value_temp2" active-color="#13ce66"
-                                                    inactive-color="#ff4949" @change="ChangeTemp2(value_temp2)">
-                                                </el-switch>&nbsp;&nbsp;
-                                                <span class="warm" style="height: 25px;width: 25px;"></span>
+                                            <div class="flex items-center mt-4 mb-4">
+                                                <img src="static/image/hum.jpg" style="height:25px;width: 25px;" alt="">
+                                                &nbsp;&nbsp;<p class="mt-2 mb-2">设定湿度:{{setHum}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -404,7 +451,7 @@
                                             <span class="font-bold text-xs">状态</span>
                                         </span>
                                         <div class="flex items-center mt-4 mb-4">
-                                            <img src="static/image/temp.jpg" style="height:25px;width: 25px;" alt="">
+                                            <img src="static/image/de_air.jpg" style="height:25px;width: 25px;" alt="">
                                             &nbsp;&nbsp;
                                             <p class="mt-2 mb-2">检测质量: {{info[count-1][0]["AIR QUALITY"].value}}
                                             </p>
@@ -412,7 +459,32 @@
                                         <p>更新时间：{{info[count-1][0]["AIR QUALITY"].update_time}}</p>
                                     </div>
                                     <br>
-                                    <div class="w-full h-10 bg-rose-600 rounded-lg pl-4 mb-4 leading-10">空气调节</div>
+                                    <div class="w-full h-10 bg-rose-600 rounded-lg pl-4 mb-4 leading-10">空气调节
+                                        <button type="button" class="el-icon-setting" data-bs-toggle="modal"
+                                            data-bs-target=".air-box"></button>
+                                    </div>
+                                    <div class="modal fade air-box" style="color:black">
+                                        <div class="modal-dialog">
+                                            <!--弹框内容-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">空气调节</h5>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <label for="amount">设定空气质量：</label>
+                                                    <input type="number" id="amount_air" min="0" max="240"
+                                                        style="height: 50px;width: 320px;font-size: 20px;" step="1"
+                                                        :value="setAir" />
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal" style="color:black">取消</button>
+                                                    <button type="button" class="btn btn-primary" @click="open_air"
+                                                        style="color:black">修改</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="p-2 text-xl device">
                                         <div class="flex justify-between items-center"><span>开关</span><span
                                                 class="flex items-center"> <span
@@ -422,12 +494,9 @@
                                                     inactive-color="#ff4949" @change="ChangeCon3(value_con3)">
                                                 </el-switch></span></div>
                                         <div class="cont3">
-                                            <div class="flex items-center mt-4 mb-4"><span class="cool"
-                                                    style="height: 25px;width: 25px;"></span>&nbsp;&nbsp;
-                                                <el-switch v-model="value_temp3" active-color="#13ce66"
-                                                    inactive-color="#ff4949" @change="ChangeTemp3(value_temp3)">
-                                                </el-switch>&nbsp;&nbsp;
-                                                <span class="warm" style="height: 25px;width: 25px;"></span>
+                                            <div class="flex items-center mt-4 mb-4">
+                                                <img src="static/image/air.jpg" style="height:25px;width: 25px;" alt="">
+                                                &nbsp;&nbsp;<p class="mt-2 mb-2">设定空气质量:{{setAir}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -448,7 +517,8 @@
                                             <span class="font-bold text-xs">状态</span>
                                         </span>
                                         <div class="flex items-center mt-4 mb-4">
-                                            <img src="static/image/temp.jpg" style="height:25px;width: 25px;" alt="">
+                                            <img src="static/image/de_light.jpg" style="height:25px;width: 25px;"
+                                                alt="">
                                             &nbsp;&nbsp;<p class="mt-2 mb-2">
                                                 检测强度: {{info[count-1][0]["LIGHT INTENSITY"].value}}
                                             </p>
@@ -456,7 +526,32 @@
                                         <p>更新时间：{{info[count-1][0]["LIGHT INTENSITY"].update_time}}</p>
                                     </div>
                                     <br>
-                                    <div class="w-full h-10 bg-rose-600 rounded-lg pl-4 mb-4 leading-10">光照调节</div>
+                                    <div class="w-full h-10 bg-rose-600 rounded-lg pl-4 mb-4 leading-10">光照调节
+                                        <button type="button" class="el-icon-setting" data-bs-toggle="modal"
+                                            data-bs-target=".light-box"></button>
+                                    </div>
+                                    <div class="modal fade light-box" style="color:black">
+                                        <div class="modal-dialog">
+                                            <!--弹框内容-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">光照调节</h5>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <label for="amount">设定光照强度：</label>
+                                                    <input type="number" id="amount_light" min="300" max="1000"
+                                                        style="height: 50px;width: 320px;font-size: 20px;" step="10"
+                                                        :value="setLight" />
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal" style="color:black">取消</button>
+                                                    <button type="button" class="btn btn-primary" @click="open_light"
+                                                        style="color:black">修改</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="p-2 text-xl device">
                                         <div class="flex justify-between items-center"><span>开关</span><span
                                                 class="flex items-center"> <span
@@ -467,11 +562,10 @@
                                                 </el-switch></span></div>
                                         <div class="cont4">
                                             <div class="flex items-center mt-4 mb-4">
-                                                <span class="cool" style="height: 25px;width: 25px;"></span>&nbsp;&nbsp;
-                                                <el-switch v-model="value_temp4" active-color="#13ce66"
-                                                    inactive-color="#ff4949"
-                                                    @change="ChangeTemp4(value_temp4)"></el-switch>&nbsp;&nbsp;
-                                                <span class="warm" style="height: 25px;width: 25px;"></span>
+                                                <img src="static/image/light.jpg" style="height:25px;width: 25px;"
+                                                    alt="">
+                                                &nbsp;&nbsp;<p class="mt-2 mb-2">设定光照强度:{{setLight}}
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -609,6 +703,7 @@
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.min.js"></script>
 <script src="static/js/func.js"></script>
 <script src="static/js/my-axios.js"></script>
 <script src="static/js/search.js"></script>

@@ -1,4 +1,3 @@
-
 new Vue({
     el: '#app',
     data() {
@@ -21,8 +20,6 @@ new Vue({
             value_con3: true,
             value_con4: true,
             value_con5: true,
-            value_temp3: true,
-            value_temp4: true,
             value_temp5: true,
             radio1: '今天',
             radio2: '今天',
@@ -33,6 +30,10 @@ new Vue({
             info: [],
             count: 1,
             weather_code: ["310100", "330400", "320200"],
+            setTemp: 26,
+            setHum: 120,
+            setAir: 25,
+            setLight: 500
         }
     },
     created() {
@@ -47,6 +48,82 @@ new Vue({
         })
     },
     methods: {
+        open_temp() {
+            this.$confirm('此操作将改变设定温度, 是否继续?', '调节温度', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+            }).then(() => {
+                const update_temp = document.getElementById("amount_temp").value
+                this.setTemp = update_temp
+                this.$message({
+                    type: 'success',
+                    message: '设置成功!'
+                });
+            }).catch(() => {
+                this.$message({
+                    type: 'info',
+                    message: '已取消设置'
+                });
+            });
+        },
+        open_hum() {
+            this.$confirm('此操作将改变设定湿度, 是否继续?', '调节温度', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+            }).then(() => {
+                const update_hum = document.getElementById("amount_hum").value
+                this.setHum = update_hum
+                this.$message({
+                    type: 'success',
+                    message: '设置成功!'
+                });
+            }).catch(() => {
+                this.$message({
+                    type: 'info',
+                    message: '已取消设置'
+                });
+            });
+        },
+        open_air() {
+            this.$confirm('此操作将改变设定空气质量, 是否继续?', '调节温度', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+            }).then(() => {
+                const update_air = document.getElementById("amount_air").value
+                this.setHum = update_air
+                this.$message({
+                    type: 'success',
+                    message: '设置成功!'
+                });
+            }).catch(() => {
+                this.$message({
+                    type: 'info',
+                    message: '已取消设置'
+                });
+            });
+        },
+        open_light() {
+            this.$confirm('此操作将改变设定光照强度, 是否继续?', '调节温度', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+            }).then(() => {
+                const update_light = document.getElementById("amount_light").value
+                this.setHum = update_light
+                this.$message({
+                    type: 'success',
+                    message: '设置成功!'
+                });
+            }).catch(() => {
+                this.$message({
+                    type: 'info',
+                    message: '已取消设置'
+                });
+            });
+        },
         async addQuestion() {
             if (this.input === "") {
                 return;
@@ -182,12 +259,6 @@ new Vue({
         ChangeTemp2(value_temp2) {
 
         },
-        ChangeTemp3(value_temp3) {
-
-        },
-        ChangeTemp4(value_temp4) {
-
-        },
         ChangeTemp5(value_temp5) {
 
         },
@@ -239,15 +310,6 @@ new Vue({
             else {
                 cont5.style.display = 'grid'
             }
-        },
-        ChangeTemp3(value_temp3) {
-
-        },
-        ChangeTemp4(value_temp4) {
-
-        },
-        ChangeTemp5(value_temp5) {
-
         },
     }
 })
