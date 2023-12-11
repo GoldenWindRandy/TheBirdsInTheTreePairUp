@@ -71,7 +71,6 @@ def Register(request, format=None):
         result = default_response()
         result['data'] = "用户名已存在"
         return Response(result,  status=status.HTTP_400_BAD_REQUEST)
-        # return HttpResponseBadRequest("用户名已存在")
 
 
 @api_view(['POST'])
@@ -83,13 +82,11 @@ def login_view(request, format=None):
         result = default_response()
         result['data'] = "用户名不存在"
         return Response(result, status=status.HTTP_400_BAD_REQUEST)
-        # return HttpResponseBadRequest("用户名不存在")
     user_info = Userinfo.objects.filter(username=username)[0]
     if user_info.password != password:
         result = default_response()
         result['data'] = "密码错误"
         return Response(result, status=status.HTTP_400_BAD_REQUEST)
-        # return HttpResponseBadRequest("密码错误")
     result = default_response()
     result['data']['reseaion'] = "登录成功"
     return Response(result)
