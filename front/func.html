@@ -60,132 +60,7 @@
                                     </div>
                                     <div class="week-weather-box">
                                         <ul class="week-wrap">
-                                            <li class="item">
-                                                <div class="date-box">
-                                                    <span class="dateFormat">今天</span>
-                                                    <span class="date">10月28日</span>
-                                                </div>
-                                                <img src="static/image/多云.png" alt="" class="weatherImg">
-                                                <span class="weather">多云</span>
-                                                <div class="temp">
-                                                    <span class="temNight">12</span>-
-                                                    <span class="temDay">12</span>
-                                                    <span>℃</span>
-                                                </div>
-                                                <div class="wind">
-                                                    <span class="windDirection">东南风</span>
-                                                    <span class="windPower">
-                                                        <3级 </span>
-                                                </div>
-                                            </li>
-                                            <li class="item">
-                                                <div class="date-box">
-                                                    <span class="dateFormat">今天</span>
-                                                    <span class="date">10月28日</span>
-                                                </div>
-                                                <img src="static/image/多云.png" alt="" class="weatherImg">
-                                                <span class="weather">多云</span>
-                                                <div class="temp">
-                                                    <span class="temDay">12</span>-
-                                                    <span class="temNight">12</span>
-                                                    <span>℃</span>
-                                                </div>
-                                                <div class="wind">
-                                                    <span class="windDirection">东南风</span>
-                                                    <span class="windPower">
-                                                        <3级 </span>
-                                                </div>
-                                            </li>
-                                            <li class="item">
-                                                <div class="date-box">
-                                                    <span class="dateFormat">今天</span>
-                                                    <span class="date">10月28日</span>
-                                                </div>
-                                                <img src="static/image/多云.png" alt="" class="weatherImg">
-                                                <span class="weather">多云</span>
-                                                <div class="temp">
-                                                    <span class="temDay">12</span>-
-                                                    <span class="temNight">12</span>
-                                                    <span>℃</span>
-                                                </div>
-                                                <div class="wind">
-                                                    <span class="windDirection">东南风</span>
-                                                    <span class="windPower">
-                                                        <3级 </span>
-                                                </div>
-                                            </li>
-                                            <li class="item">
-                                                <div class="date-box">
-                                                    <span class="dateFormat">今天</span>
-                                                    <span class="date">10月28日</span>
-                                                </div>
-                                                <img src="static/image/多云.png" alt="" class="weatherImg">
-                                                <span class="weather">多云</span>
-                                                <div class="temp">
-                                                    <span class="temDay">12</span>-
-                                                    <span class="temNight">12</span>
-                                                    <span>℃</span>
-                                                </div>
-                                                <div class="wind">
-                                                    <span class="windDirection">东南风</span>
-                                                    <span class="windPower">
-                                                        <3级 </span>
-                                                </div>
-                                            </li>
-                                            <li class="item">
-                                                <div class="date-box">
-                                                    <span class="dateFormat">今天</span>
-                                                    <span class="date">10月28日</span>
-                                                </div>
-                                                <img src="static/image/多云.png" alt="" class="weatherImg">
-                                                <span class="weather">多云</span>
-                                                <div class="temp">
-                                                    <span class="temDay">12</span>-
-                                                    <span class="temNight">12</span>
-                                                    <span>℃</span>
-                                                </div>
-                                                <div class="wind">
-                                                    <span class="windDirection">东南风</span>
-                                                    <span class="windPower">
-                                                        <3级 </span>
-                                                </div>
-                                            </li>
-                                            <li class="item">
-                                                <div class="date-box">
-                                                    <span class="dateFormat">今天</span>
-                                                    <span class="date">10月28日</span>
-                                                </div>
-                                                <img src="static/image/多云.png" alt="" class="weatherImg">
-                                                <span class="weather">多云</span>
-                                                <div class="temp">
-                                                    <span class="temDay">12</span>-
-                                                    <span class="temNight">12</span>
-                                                    <span>℃</span>
-                                                </div>
-                                                <div class="wind">
-                                                    <span class="windDirection">东南风</span>
-                                                    <span class="windPower">
-                                                        <3级 </span>
-                                                </div>
-                                            </li>
-                                            <li class="item">
-                                                <div class="date-box">
-                                                    <span class="dateFormat">今天</span>
-                                                    <span class="date">10月28日</span>
-                                                </div>
-                                                <img src="static/image/多云.png" alt="" class="weatherImg">
-                                                <span class="weather">多云</span>
-                                                <div class="temp">
-                                                    <span class="temDay">12</span>-
-                                                    <span class="temNight">12</span>
-                                                    <span>℃</span>
-                                                </div>
-                                                <div class="wind">
-                                                    <span class="windDirection">东南风</span>
-                                                    <span class="windPower">
-                                                        <3级 </span>
-                                                </div>
-                                            </li>
+
                                         </ul>
                                     </div>
                                 </div>
@@ -198,16 +73,44 @@
                             <div class="text-greyText inline-block hover:cursor-pointer" @click="dialogVisible = true">
                                 问答</div>
                         </div>
-                        <el-dialog title="问答" :visible.sync="dialogVisible" width="30%">
-                            <div class="mb-4" v-for="(q, i) in QA">
-                                <div style="text-align: right; width: 100%" v-if="i%2==0">{{q}}</div>
-                                <div v-else>{{q}}</div>
+                        <el-dialog :visible.sync="dialogVisible" width="32%" top="10px">
+                            <div class="chat_commento">
+                                <!-- top -->
+                                <div class="chat_top">
+                                    问答
+                                </div>
+                                <!-- line -->
+                                <div class="line"></div>
+                                <!-- middle -->
+                                <div class="chat_middle" id="chat_middle_item">
+                                    <div v-for="(item, index) in QA">
+                                        <!-- 左边 -->
+                                        <div class="chat_left clearfix" v-if="index%2==1">
+                                            <div class="chat_left_item_1 ">AI</div>
+                                            <div class="chat_left_item_2">
+                                                <div class="chat_left_content">{{item}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="chat_right" v-else>
+                                            <div class="chat_right_item_1 ">用户</div>
+                                            <div class="chat_right_item_2 ">
+                                                <div class="chat_right_content">{{item}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- line -->
+                                <div id="msg_end" style="height: 1px;width:1px"></div>
+                                <div class="line"></div>
+                                <!-- foot -->
+                                <div class="chat_foot">
+                                    <!-- context -->
+                                    <textarea class="chat_context" id="chat_context_item" cols="30" rows="10"
+                                        placeholder="请输入您的问题" v-model="input"></textarea>
+                                    <button class="chat_commit btn-primary" id="send-button"
+                                        @click="addQuestion">发送</button>
+                                </div>
                             </div>
-                            <el-input v-model="input" @change="addQuestion"></el-input>
-                            <span slot="footer" class="dialog-footer">
-                                <el-button @click="addQuestion">确 定</el-button>
-                                <el-button type="primary" @click="dialogQuit">退 出</el-button>
-                            </span>
                         </el-dialog>
                     </div>
                     <div class="flex justify-between pr-8 mt-4 mb-4">
@@ -243,12 +146,9 @@
                     <div>
                         <div class="h-16 pl-4">
                             <div class="title">
-                                <span class="dateShort">10月28日</span>
-                                <span class="calendar">农历
-                                    <span class="dateLunar">十月初四</span>
-                                </span>
+
                             </div>
-                            <div class="text-xm">{{curr_page}}</div>
+                            <div class="text-xm place">{{curr_page}}</div>
                         </div><template>
 
                             <el-tabs :tab-position="tabPosition" v-model="activeName" @tab-click="handleClick">
@@ -298,14 +198,7 @@
                                                 <div class="p-2">
                                                     <div class="h-12 flex justify-between items-center">
                                                         <div class="flex weather1">
-                                                            <img src="static/image/多云.png" alt="" class="weatherImg">
-                                                            <div>
-                                                                <span class="area">上海市</span>
-                                                                <p class="temp">
-                                                                    <span class="temperature">12</span>°
-                                                                </p>
 
-                                                            </div>
                                                         </div>
                                                         <el-switch v-model="value" active-color="#13ce66"
                                                             inactive-color="#ff4949" @change="ChangeWeather(value)">
@@ -313,51 +206,7 @@
 
                                                     </div>
                                                     <div class="mb-4 mt-4 grid grid-cols-3 gap-4 weather2">
-                                                        <div class="flex flex-col items-center">
-                                                            <div class="w-6 h-6">
-                                                                <img src="static/image/小雨-line.png" class="weatherImg"
-                                                                    alt="">
-                                                            </div>
-                                                            <div><span class="weather">多云</span></div>
-                                                            <div class="text-[#8d8d8d]">天气</div>
-                                                        </div>
-                                                        <div class="flex flex-col items-center">
-                                                            <div class="wind w-6 h-6"></div>
-                                                            <div class="windDirection">东南风</div>
-                                                            <div class="text-[#8d8d8d]">风向</div>
-                                                        </div>
-                                                        <div class="flex flex-col items-center">
-                                                            <div class="wind w-6 h-6"></div>
-                                                            <div class="windPower">2级</div>
-                                                            <div class="text-[#8d8d8d]">风速</div>
-                                                        </div>
-                                                        <div class="flex flex-col items-center">
-                                                            <div class="humidity2 w-6 h-6"></div>
-                                                            <div>
-                                                                <span class="humidity">53</span>%
-                                                            </div>
-                                                            <div class="text-[#8d8d8d]">湿度</div>
-                                                        </div>
-                                                        <div class="flex flex-col items-center">
-                                                            <div class="uv w-6 h-6"></div>
-                                                            <div class="ultraviolet">强</div>
-                                                            <div class="text-[#8d8d8d]">紫外线</div>
-                                                        </div>
-                                                        <div class="flex flex-col items-center">
-                                                            <div class="visbility w-6 h-6"></div>
-                                                            <div><span class="psPm25">55</span>
-                                                                <span class="psPm25Level">良</span>
-                                                            </div>
-                                                            <div class="text-[#8d8d8d]">PM2.5</div>
-                                                        </div>
-                                                        <li>
-                                                            <span>日出</span>
-                                                            <span class="sunriseTime">06:38</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>日落</span>
-                                                            <span class="sunsetTime">17:18</span>
-                                                        </li>
+
                                                     </div>
                                                 </div>
                                                 <div
@@ -453,32 +302,33 @@
                             <div class="p-2">
                             </div>
                             <div class="flex flex-row justify-between">
-                                <div class="w-1/5" flex flex-col>
+                                <div class="w-1/5 flex flex-col">
                                     <div class="w-full h-10 bg-[#486bf2] rounded-lg pl-4 mb-4 leading-10" v-if="info">
                                         温度检测器
                                     </div>
                                     <div class="p-2 text-xl device">
                                         <div class="flex justify-between items-center">
-                                            <span>id:{{info[0][0].TEMPERATURE.id}}</span>
+                                            <span>id:{{info[count-1][0].TEMPERATURE.id}}</span>
                                         </div>
                                         <span class="flex items-center">
                                             <span
-                                                :class="{'green-status': info[0][0].TEMPERATURE.controllable, 'red-status': !info[0][0].TEMPERATURE.controllable}"
+                                                :class="{'green-status': info[count-1][0].TEMPERATURE.controllable, 'red-status': !info[count-1][0].TEMPERATURE.controllable}"
                                                 class="mr-2"></span>
                                             <span class="font-bold text-xs">状态</span>
                                         </span>
                                         <div class="flex items-center mt-4 mb-4">
                                             <img src="static/image/temp.jpg" style="height:25px;width: 25px;" alt="">
-                                            &nbsp;&nbsp;<p class="mt-2 mb-2">检测温度: {{info[0][0].TEMPERATURE.value}}</p>
+                                            &nbsp;&nbsp;<p class="mt-2 mb-2">检测温度:
+                                                {{info[count-1][0].TEMPERATURE.value}}</p>
                                         </div>
-                                        <p>更新时间：{{info[0][0].TEMPERATURE.update_time}}</p>
+                                        <p>更新时间：{{info[count-1][0].TEMPERATURE.update_time}}</p>
                                     </div>
                                     <br>
                                     <div class="w-full h-10 bg-rose-600 rounded-lg pl-4 mb-4 leading-10">温度调节</div>
                                     <div class="p-2 text-xl device">
                                         <div class="flex justify-between items-center"><span>开关</span><span
                                                 class="flex items-center"> <span
-                                                    :class="{'green-status': info[0][0].TEMPERATURE.controllable, 'red-status': !info[0][0].TEMPERATURE.controllable}"
+                                                    :class="{'green-status': info[count-1][0].TEMPERATURE.controllable, 'red-status': !info[count-1][0].TEMPERATURE.controllable}"
                                                     class="mr-2"></span>
                                                 <span class="font-bold text-xs">状态</span>&nbsp;
                                                 <el-switch v-model="value_con5" active-color="#13ce66"
@@ -502,26 +352,27 @@
                                     </div>
                                     <div class="p-2 text-xl device">
                                         <div class="flex justify-between items-center">
-                                            <span>id:{{info[0][0].HUMIDITY.id}}</span>
+                                            <span>id:{{info[count-1][0].HUMIDITY.id}}</span>
                                         </div>
                                         <span class="flex items-center">
                                             <span
-                                                :class="{'green-status': info[0][0].TEMPERATURE.controllable, 'red-status': !info[0][0].TEMPERATURE.controllable}"
+                                                :class="{'green-status': info[count-1][0].TEMPERATURE.controllable, 'red-status': !info[count-1][0].TEMPERATURE.controllable}"
                                                 class="mr-2"></span>
                                             <span class="font-bold text-xs">状态</span>
                                         </span>
                                         <div class="flex items-center mt-4 mb-4">
                                             <img src="static/image/temp.jpg" style="height:25px;width: 25px;" alt="">
-                                            &nbsp;&nbsp;<p class="mt-2 mb-2">检测湿度: {{info[0][0].HUMIDITY.value}}</p>
+                                            &nbsp;&nbsp;<p class="mt-2 mb-2">检测湿度: {{info[count-1][0].HUMIDITY.value}}
+                                            </p>
                                         </div>
-                                        <p>更新时间：{{info[0][0].HUMIDITY.update_time}}</p>
+                                        <p>更新时间：{{info[count-1][0].HUMIDITY.update_time}}</p>
                                     </div>
                                     <br>
                                     <div class="w-full h-10 bg-rose-600 rounded-lg pl-4 mb-4 leading-10">湿度调节</div>
                                     <div class="p-2 text-xl device">
                                         <div class="flex justify-between items-center"><span>开关</span><span
                                                 class="flex items-center"> <span
-                                                    :class="{'green-status': info[0][0].TEMPERATURE.controllable, 'red-status': !info[0][0].TEMPERATURE.controllable}"
+                                                    :class="{'green-status': info[count-1][0].TEMPERATURE.controllable, 'red-status': !info[count-1][0].TEMPERATURE.controllable}"
                                                     class="mr-2"></span><span class="font-bold text-xs">状态</span>&nbsp;
                                                 <el-switch v-model="value_con2" active-color="#13ce66"
                                                     inactive-color="#ff4949" @change="ChangeCon2(value_con2)">
@@ -544,27 +395,28 @@
                                     </div>
                                     <div class="p-2 text-xl device">
                                         <div class="flex justify-between items-center">
-                                            <span>id:{{info[0][0]["AIR QUALITY"].id}}</span>
+                                            <span>id:{{info[count-1][0]["AIR QUALITY"].id}}</span>
                                         </div>
                                         <span class="flex items-center">
                                             <span
-                                                :class="{'green-status': info[0][0].TEMPERATURE.controllable, 'red-status': !info[0][0].TEMPERATURE.controllable}"
+                                                :class="{'green-status': info[count-1][0].TEMPERATURE.controllable, 'red-status': !info[count-1][0].TEMPERATURE.controllable}"
                                                 class="mr-2"></span>
                                             <span class="font-bold text-xs">状态</span>
                                         </span>
                                         <div class="flex items-center mt-4 mb-4">
                                             <img src="static/image/temp.jpg" style="height:25px;width: 25px;" alt="">
-                                            &nbsp;&nbsp;<p class="mt-2 mb-2">检测质量: {{info[0][0]["AIR QUALITY"].value}}
+                                            &nbsp;&nbsp;
+                                            <p class="mt-2 mb-2">检测质量: {{info[count-1][0]["AIR QUALITY"].value}}
                                             </p>
                                         </div>
-                                        <p>更新时间：{{info[0][0]["AIR QUALITY"].update_time}}</p>
+                                        <p>更新时间：{{info[count-1][0]["AIR QUALITY"].update_time}}</p>
                                     </div>
                                     <br>
                                     <div class="w-full h-10 bg-rose-600 rounded-lg pl-4 mb-4 leading-10">空气调节</div>
                                     <div class="p-2 text-xl device">
                                         <div class="flex justify-between items-center"><span>开关</span><span
                                                 class="flex items-center"> <span
-                                                    :class="{'green-status': info[0][0].TEMPERATURE.controllable, 'red-status': !info[0][0].TEMPERATURE.controllable}"
+                                                    :class="{'green-status': info[count-1][0].TEMPERATURE.controllable, 'red-status': !info[count-1][0].TEMPERATURE.controllable}"
                                                     class="mr-2"></span><span class="font-bold text-xs">状态</span>&nbsp;
                                                 <el-switch v-model="value_con3" active-color="#13ce66"
                                                     inactive-color="#ff4949" @change="ChangeCon3(value_con3)">
@@ -587,28 +439,28 @@
                                     </div>
                                     <div class="p-2 text-xl device">
                                         <div class="flex justify-between items-center">
-                                            <span>id:{{info[0][0]["LIGHT INTENSITY"].id}}</span>
+                                            <span>id:{{info[count-1][0]["LIGHT INTENSITY"].id}}</span>
                                         </div>
                                         <span class="flex items-center">
                                             <span
-                                                :class="{'green-status': info[0][0].TEMPERATURE.controllable, 'red-status': !info[0][0].TEMPERATURE.controllable}"
+                                                :class="{'green-status': info[count-1][0].TEMPERATURE.controllable, 'red-status': !info[count-1][0].TEMPERATURE.controllable}"
                                                 class="mr-2"></span>
                                             <span class="font-bold text-xs">状态</span>
                                         </span>
                                         <div class="flex items-center mt-4 mb-4">
                                             <img src="static/image/temp.jpg" style="height:25px;width: 25px;" alt="">
                                             &nbsp;&nbsp;<p class="mt-2 mb-2">
-                                                检测强度: {{info[0][0]["LIGHT INTENSITY"].value}}
+                                                检测强度: {{info[count-1][0]["LIGHT INTENSITY"].value}}
                                             </p>
                                         </div>
-                                        <p>更新时间：{{info[0][0]["LIGHT INTENSITY"].update_time}}</p>
+                                        <p>更新时间：{{info[count-1][0]["LIGHT INTENSITY"].update_time}}</p>
                                     </div>
                                     <br>
                                     <div class="w-full h-10 bg-rose-600 rounded-lg pl-4 mb-4 leading-10">光照调节</div>
                                     <div class="p-2 text-xl device">
                                         <div class="flex justify-between items-center"><span>开关</span><span
                                                 class="flex items-center"> <span
-                                                    :class="{'green-status': info[0][0].TEMPERATURE.controllable, 'red-status': !info[0][0].TEMPERATURE.controllable}"
+                                                    :class="{'green-status': info[count-1][0].TEMPERATURE.controllable, 'red-status': !info[count-1][0].TEMPERATURE.controllable}"
                                                     class="mr-2"></span><span class="font-bold text-xs">状态</span>&nbsp;
                                                 <el-switch v-model="value_con4" active-color="#13ce66"
                                                     inactive-color="#ff4949" @change="ChangeCon4(value_con4)">
@@ -756,7 +608,6 @@
     </div>
     </div>
 </body>
-
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="static/js/func.js"></script>
 <script src="static/js/my-axios.js"></script>
