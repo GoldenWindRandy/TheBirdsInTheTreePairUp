@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76fdb60c-558a-451a-9c5c-e141e81aa862" name="Changes" comment="debug:fix register and login">
+      <change beforePath="$PROJECT_DIR$/.idea/SoftwareEngineering.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SoftwareEngineering.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/Login/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/Login/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/langchain_model/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/langchain_model/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,11 +18,17 @@
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="ProjectId" id="2Xv5I1Iz09ImAyCGlbrW1VGfUqh" />
   <component name="ProjectLevelVcsManager">
@@ -98,6 +106,13 @@
       <workItem from="1700618516819" duration="36000" />
       <workItem from="1700618598795" duration="2206000" />
       <workItem from="1700642855451" duration="369000" />
+      <workItem from="1700643650544" duration="617000" />
+      <workItem from="1700816283345" duration="11000" />
+      <workItem from="1700913820835" duration="860000" />
+      <workItem from="1701137922065" duration="1697000" />
+      <workItem from="1701162623700" duration="7000" />
+      <workItem from="1702300972965" duration="2124000" />
+      <workItem from="1702304627725" duration="2055000" />
     </task>
     <task id="LOCAL-00001" summary="debug:fix register and login">
       <created>1700191680760</created>
@@ -136,7 +151,8 @@
     <option name="LAST_COMMIT_MESSAGE" value="debug:fix register and login" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SoftwareEngineering$manage.coverage" NAME="manage Coverage Results" MODIFIED="1700643165063" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
+    <SUITE FILE_PATH="coverage/SoftwareEngineering$manage.coverage" NAME="manage Coverage Results" MODIFIED="1702306181790" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main" />
+    <SUITE FILE_PATH="coverage/SoftwareEngineering$views.coverage" NAME="views Coverage Results" MODIFIED="1702301932222" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main/langchain_model" />
     <SUITE FILE_PATH="coverage/IntelligentTemperatureControl$manage.coverage" NAME="manage Coverage Results" MODIFIED="1699497455771" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
