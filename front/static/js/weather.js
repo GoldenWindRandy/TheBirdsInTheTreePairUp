@@ -81,7 +81,7 @@ function getWeather(cityCode) {
         // 7日天气预报数据展示
         const dayForecast = wObj.dayForecast
         const dayForecastStr = dayForecast.map(item => {
-            return `<li class="item">
+            return `<li class="witem">
       <div class="date-box">
         <span class="dateFormat">${item.dateFormat}</span>
         <span class="date">${item.date}</span>
