@@ -1,14 +1,11 @@
-import http.client
-
-from django.contrib.auth import authenticate
-from django.http import Http404, HttpResponseBadRequest
+from django.http import Http404
 from rest_framework import generics
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
 from utils.default_value import default_response
+
 from .serializers import *
 
 
@@ -39,7 +36,7 @@ class user_detail(APIView):
     def put(self, request, pk, format=None):
         user = self.get_objects(pk)
         serializer = UserInfoSerializer(user, data=request.data)
-        print(request.data)
+        # print(request.data)
         if serializer.is_valid():
             serializer.save()
             result = default_response()
@@ -70,7 +67,7 @@ def Register(request, format=None):
     else:
         result = default_response()
         result['data'] = "用户名已存在"
-        return Response(result,  status=status.HTTP_400_BAD_REQUEST)
+        return Response(result, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(['POST'])

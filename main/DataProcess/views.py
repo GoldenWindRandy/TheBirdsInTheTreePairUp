@@ -200,8 +200,8 @@ def merge_Properties(item, TemperatureInformation):
 #后期删除该函数
 def makedata(Info):
     for i in range(0,8):
-        Info[i][0]["AIR QUALITY"]["value"] = str(int(Info[i][0]["AIR QUALITY"]["value"])+random.randint(0, 10))
-        Info[i][0]["LIGHT INTENSITY"]["value"] = str(int(Info[i][0]["LIGHT INTENSITY"]["value"])+random.randint(0, 10))
+        Info[i][0]["AIR QUALITY"]["value"] = str(int(Info[i][0]["AIR QUALITY"]["value"])+10*random.randint(0, 10))
+        Info[i][0]["LIGHT INTENSITY"]["value"] = str(int(Info[i][0]["LIGHT INTENSITY"]["value"])+10*random.randint(0, 10))
     return Info
     
 
