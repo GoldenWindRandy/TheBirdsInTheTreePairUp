@@ -5,15 +5,15 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Function</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="static/css/style.css" />
     <!-- import Vue before Element -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="static/js/vue.js"></script>
     <!-- 引入样式 -->
+    <!--<link rel="stylesheet" href="static/css/index.css">-->
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <!-- 引入组件库 -->
-    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="static/js/element_index.js"></script>
     <style scoped>
         .red-status {
             display: inline-block;
@@ -70,44 +70,24 @@
                         <div>
                             <div class="w-4 h-4 lighting mr-2 inline-block"></div>
                             <div class="text-greyText inline-block hover:cursor-pointer" @click="dialogVisible = true">
-                                问答</div>
+                                备忘录</div>
                         </div>
                         <el-dialog :visible.sync="dialogVisible" width="32%" top="10px">
-                            <div class="chat_commento">
-                                <!-- top -->
-                                <div class="chat_top">
-                                    问答
+                            <div class="border">
+                                <!-- 标题 -->
+                                <div class="memo-title">我的备忘录</div>
+                                <hr>
+                                <!-- 输入框和按钮 -->
+                                <div class="form">
+                                    <input class="memo-input" type="text" name="text" placeholder="请填写您的事件">
+                                    <button id="add" @click="add_memo">添加</button>
                                 </div>
-                                <!-- line -->
-                                <div class="line"></div>
-                                <!-- middle -->
-                                <div class="chat_middle" id="chat_middle_item">
-                                    <div v-for="(item, index) in QA">
-                                        <!-- 左边 -->
-                                        <div class="chat_left clearfix" v-if="index%2==1">
-                                            <div class="chat_left_item_1 ">AI</div>
-                                            <div class="chat_left_item_2">
-                                                <div class="chat_left_content">{{item}}</div>
-                                            </div>
-                                        </div>
-                                        <div class="chat_right" v-else>
-                                            <div class="chat_right_item_1 ">用户</div>
-                                            <div class="chat_right_item_2 ">
-                                                <div class="chat_right_content">{{item}}</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- line -->
-                                <div id="msg_end" style="height: 1px;width:1px"></div>
-                                <div class="line"></div>
-                                <!-- foot -->
-                                <div class="chat_foot">
-                                    <!-- context -->
-                                    <textarea class="chat_context" id="chat_context_item" cols="30" rows="10"
-                                        placeholder="请输入您的问题" v-model="input"></textarea>
-                                    <button class="chat_commit btn-primary" id="send-button"
-                                        @click="addQuestion">发送</button>
+
+                                <!-- 备忘录事件列表 -->
+                                <div
+                                    style="width: 94%;margin: auto;border-radius: 3px;box-shadow: 2px 2px rgb(119, 115, 115);background-color: rgb(227, 244, 244);">
+                                    <ul class="list">
+                                    </ul>
                                 </div>
                             </div>
                         </el-dialog>
@@ -336,7 +316,7 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <label for="amount">设定温度：</label>
-                                                    <input type="number" id="amount_temp" min="0" max="38"
+                                                    <input type="number" id="amount_temp" min="18" max="32"
                                                         style="height: 50px;width: 360px;font-size: 20px;" step="0.1"
                                                         :value="setTemp" />
                                                 </div>
@@ -406,7 +386,7 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <label for="amount">设定湿度：</label>
-                                                    <input type="number" id="amount_hum" min="30" max="180"
+                                                    <input type="number" id="amount_hum" min="50" max="85"
                                                         style="height: 50px;width: 360px;font-size: 20px;" step="1"
                                                         :value="setHum" />
                                                 </div>
@@ -472,7 +452,7 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <label for="amount">设定空气质量：</label>
-                                                    <input type="number" id="amount_air" min="0" max="240"
+                                                    <input type="number" id="amount_air" min="15" max="50"
                                                         style="height: 50px;width: 320px;font-size: 20px;" step="1"
                                                         :value="setAir" />
                                                 </div>
@@ -539,7 +519,7 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <label for="amount">设定光照强度：</label>
-                                                    <input type="number" id="amount_light" min="300" max="1000"
+                                                    <input type="number" id="amount_light" min="1000" max="1800"
                                                         style="height: 50px;width: 320px;font-size: 20px;" step="10"
                                                         :value="setLight" />
                                                 </div>
@@ -584,59 +564,50 @@
                         <div class="p-2">
                         </div>
                         <div class="grid grid-cols-4 gap-16 alertData">
-                            <div class="bg-[#04ed85] h-[28rem] flex flex-col justify-end rounded-2xl"><span
-                                    class="text-center pb-2">iClimate已介入</span>
-                                <div class="bg-[#f05151] w-full h-3/5 rounded-2xl flex flex-col">
+                            <div class="bg-[#04ed85] h-[20rem] flex flex-col justify-end rounded-2xl"><span
+                                    class="text-center pb-2" style="font-size: 18px;">iClimate已介入</span>
+                                <div class="bg-[#f05151] w-full h-[45%] rounded-2xl flex flex-col">
                                     <div class="pl-4 text-xl mt-2 flex flex-row items-center">
                                         <div style="margin: center;">气温预警</div>
                                     </div>
-                                    <div class="w-full h-2/5 rounded-2xl bg-[#f61f1f] p-2 pl-4">
-                                        <div>温度设备1</div>
+                                    <div class="w-full flex-1 rounded-2xl bg-[#f61f1f] p-2 pl-4">
+                                        <div>温度设备</div>
                                         <div class="fire w-5 h-6 "></div>
-                                        <div>检测温度: 30°</div>
+                                        <div>检测温度: {{info[count-1][0].TEMPERATURE.value}}</div>
                                     </div>
-                                    <div class="w-full h-2/5 rounded-2xl bg-[#f61f1f] p-2 pl-4">
-                                        <div>温度设备2</div>
-                                        <div class="fire w-5 h-6"></div>
-                                        <div>检测温度: 32°</div>
-                                    </div>
+
                                 </div>
-                                <div class="bg-[#fb8a2e] w-full h-[30%] rounded-2xl flex flex-col">
+                                <div class="bg-[#fb8a2e] w-full h-[45%] rounded-2xl flex flex-col">
                                     <div class="pl-4 text-xl mt-2 flex flex-row justify-between items-center">
-                                        <div style="margin: center;">湿度预警</div>
+                                        <div style="margin: center;">空气质量预警</div>
                                     </div>
                                     <div class="bg-[#e68637] w-full flex-1 rounded-2xl p-2 pl-4">
-                                        <div>湿度设备1</div>
+                                        <div>空气质量设备</div>
                                         <div class="drop-warn w-5 h-7"></div>
-                                        <div>检测湿度: 35%</div>
+                                        <div>检测空气质量：{{info[count-1][0]["AIR QUALITY"].value}}</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="bg-[#d8d848] h-[28rem] flex flex-col justify-end rounded-2xl"><span
-                                    class="text-center pb-2">请检查维修</span>
-                                <div class="bg-[#ac7a30] w-full h-3/5 rounded-2xl flex flex-col justify-between">
-                                    <div class="pl-4 text-xl mt-2 flex flex-row justify-between items-center">
-                                        <div style="margin: center;">温度检测器</div>
-                                    </div>
-                                    <div class="w-full h-2/5 rounded-2xl bg-[#926829] p-2 pl-4">
-                                        <div>温度设备1</div>
-                                        <div class="disk w-4 h-4"></div>
-                                        <div>检测温度: 90°</div>
-                                    </div>
-                                    <div class="w-full h-2/5 rounded-2xl bg-[#926829] p-2 pl-4">
-                                        <div>温度设备2</div>
-                                        <div class="break w-5 h-6"></div>
-                                        <div>检测温度: ~~°</div>
-                                    </div>
-                                </div>
-                                <div class="bg-[#fb8a2e] w-full h-[30%] rounded-2xl flex flex-col">
+                            <div class="bg-[#d8d848] h-[20rem] flex flex-col justify-end rounded-2xl"><span
+                                    class="text-center pb-2" style="font-size: 18px;">请检查维修</span>
+                                <div class="bg-[#ac7a30] w-full h-[45%] rounded-2xl flex flex-col justify-between">
                                     <div class="pl-4 text-xl mt-2 flex flex-row justify-between items-center">
                                         <div style="margin: center;">湿度检测器</div>
                                     </div>
+                                    <div class="w-full flex-1 rounded-2xl bg-[#926829] p-2 pl-4">
+                                        <div>湿度设备</div>
+                                        <div class="disk w-4 h-4"></div>
+                                        <div>检测湿度: {{info[count-1][0].HUMIDITY.value}}</div>
+                                    </div>
+                                </div>
+                                <div class="bg-[#fb8a2e] w-full h-[45%] rounded-2xl flex flex-col">
+                                    <div class="pl-4 text-xl mt-2 flex flex-row justify-between items-center">
+                                        <div style="margin: center;">光照强度检测器</div>
+                                    </div>
                                     <div class="bg-[#e68637] w-full flex-1 rounded-2xl p-2 pl-4">
-                                        <div>湿度设备1</div>
+                                        <div>光照强度设备</div>
                                         <div class="break-dark w-5 h-7"></div>
-                                        <div>检测湿度: ~~%</div>
+                                        <div>检测光照强度:{{info[count-1][0]["LIGHT INTENSITY"].value}} </div>
                                     </div>
                                 </div>
                             </div>
@@ -649,50 +620,17 @@
                     <div style="font-weight: 600px;">
                         &nbsp;&nbsp;&nbsp;&nbsp;数据&nbsp;&nbsp;&nbsp;&nbsp;</div>
                 </template>
-                <div class="quarter-div dataFrame1">
-                    <div id="demo1" style="width: 220px;height:220px;float:right"></div>
-                    <p class="dataTitle">平均温度</p>
-                    <p class="dataToday">{{radio1}}</p>
-                    <div class="dataLegend">
-                        <template>
-                            <el-radio v-model="radio1" label="今天">今天</el-radio>
-                            <el-radio v-model="radio1" label="过去一月">过去一月</el-radio>
-                        </template>
-                    </div>
-                </div>
-                <div class="quarter-div dataFrame2">
-                    <div id="demo2" style="width: 320px;height:220px;float:right;"></div>
-                    <p class="dataTitle">空气质量</p>
-                    <p class="dataToday">{{radio2}}</p>
-                    <div class="dataLegend">
-                        <template>
-                            <el-radio v-model="radio2" label="今天">今天</el-radio>
-                            <el-radio v-model="radio2" label="过去一月">过去一月</el-radio>
-                        </template>
-                    </div>
-                </div>
-                <div class="quarter-div dataFrame3">
-                    <div id="demo3" style="width: 220px;height:220px;float:right"></div>
-                    <p class="dataTitle">平均湿度</p>
-                    <p class="dataToday">{{radio3}}</p>
-                    <div class="dataLegend">
-                        <template>
-                            <el-radio v-model="radio3" label="今天" name="今天">今天</el-radio>
-                            <el-radio v-model="radio3" label="过去一月" name="过去一月">过去一月</el-radio>
-                        </template>
-                    </div>
-                </div>
-                <div class="quarter-div dataFrame4">
-                    <div id="demo4" style="width: 320px;height:220px;float:right;"></div>
-                    <p class="dataTitle">光照强度</p>
-                    <p class="dataToday">{{radio4}}</p>
-                    <div class="dataLegend">
-                        <template>
-                            <el-radio v-model="radio4" label="今天">今天</el-radio>
-                            <el-radio v-model="radio4" label="过去一月">过去一月</el-radio>
-                        </template>
-                    </div>
-                </div>
+                <iframe src="http://127.0.0.1:5500/index.html" width="1200" height="655" frameborder="0"
+                    allowfullscreen>
+                </iframe>
+            </el-tab-pane>
+            <el-tab-pane name="answer">
+                <template #label>
+                    <div style="font-weight: 600px;">
+                        &nbsp;&nbsp;&nbsp;&nbsp;问答&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                </template>
+                <iframe src="http://localhost:8333/" width="1200" height="670" frameborder="0" allowfullscreen>
+                </iframe>
             </el-tab-pane>
             </el-tabs>
             </template>
@@ -702,252 +640,11 @@
     </div>
     </div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.min.js"></script>
+<script src="static/js/axios.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
 <script src="static/js/func.js"></script>
 <script src="static/js/my-axios.js"></script>
 <script src="static/js/search.js"></script>
 <script src="static/js/weather.js"></script>
-<script type="text/javascript">
-    // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.getElementById('demo3'));
-
-    // 指定图表的配置项和数据
-    var option = {
-        series: [
-            {
-                type: 'gauge',
-                progress: {
-                    show: true,
-                    width: 10
-                },
-                axisLine: {
-                    lineStyle: {
-                        width: 10
-                    }
-                },
-                axisTick: {
-                    show: false
-                },
-                splitLine: {
-                    length: 8,
-                    lineStyle: {
-                        width: 2,
-                        color: '#eaf4fc'
-                    }
-                },
-                anchor: {
-                    show: true,
-                    showAbove: true,
-                    size: 25,
-                    itemStyle: {
-                        borderWidth: 5
-                    }
-                },
-                title: {
-                    show: false
-                },
-                detail: {
-                    valueAnimation: true,
-                    color: '#eaf4fc',
-                    fontSize: 30,
-                    offsetCenter: [0, '52%']
-                },
-                data: [
-                    {
-                        value: 52
-                    }
-                ]
-            }
-        ]
-    };
-    // 使用刚指定的配置项和数据显示图表。
-    myChart.setOption(option);
-</script>
-
-<script type="text/javascript">
-    // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.getElementById('demo2'));
-
-    let base = +new Date(2023, 11, 18);
-    let oneDay = 3600;
-    let data = [[base, Math.random() * 300]];
-    for (let i = 1; i < 20000; i++) {
-        let now = new Date((base += oneDay));
-        data.push([+now, Math.abs((Math.random() - 0.5) + data[i - 1][1])]);
-    }
-    var option = {
-        tooltip: {
-            trigger: 'axis',
-            position: function (pt) {
-                return [pt[0], '10%'];
-            }
-        },
-        xAxis: {
-            type: 'time',
-            boundaryGap: false,
-            axisTick: {
-                show: false
-            },
-            axisLabel: {
-                show: false
-            }
-        },
-        yAxis: {
-            type: 'value',
-            boundaryGap: [0, '%']
-        },
-        series: [
-            {
-                name: 'Fake Data',
-                type: 'line',
-                smooth: true,
-                symbol: 'none',
-                areaStyle: {},
-                data: data
-            }
-        ],
-    };
-    // 使用刚指定的配置项和数据显示图表。
-    myChart.setOption(option);
-</script>
-
-<script type="text/javascript">
-    // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.getElementById('demo4'));
-
-    let base2 = +new Date(2023, 11, 18);
-    let oneDay2 = 3000;
-    let data2 = [[base, Math.random() * 300]];
-    for (let i = 1; i < 20000; i++) {
-        let now = new Date((base += oneDay));
-        data.push([+now, Math.abs((Math.random() - 0.5) + data[i - 1][1])]);
-    }
-    var option = {
-        tooltip: {
-            trigger: 'axis',
-            position: function (pt) {
-                return [pt[0], '10%'];
-            }
-        },
-        xAxis: {
-            type: 'time',
-            boundaryGap: false,
-            axisTick: {
-                show: false
-            },
-            axisLabel: {
-                show: false
-            }
-        },
-        yAxis: {
-            type: 'value',
-            boundaryGap: [0, '%']
-        },
-        series: [
-            {
-                name: 'Fake Data',
-                type: 'line',
-                smooth: true,
-                symbol: 'none',
-                areaStyle: {
-                    color: 'yellow' // Change to yellow
-                },
-                data: data
-            }
-        ],
-    };
-    // 使用刚指定的配置项和数据显示图表。
-    myChart.setOption(option);
-</script>
-<script type="text/javascript">
-    // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.getElementById('demo1'));
-
-    // 指定图表的配置项和数据
-    var option = {
-        series: [
-            {
-                type: 'gauge',
-                startAngle: 180,
-                endAngle: 0,
-                center: ['50%', '75%'],
-                radius: '90%',
-                min: 0,
-                max: 1,
-                splitNumber: 8,
-                axisLine: {
-                    lineStyle: {
-                        width: 10,
-                        color: [
-                            [0.25, '#FF6E76'],
-                            [0.5, '#FDDD60'],
-                            [0.75, '#58D9F9'],
-                            [1, '#7CFFB2']
-                        ]
-                    }
-                },
-                pointer: {
-                    icon: 'path://M12.8,0.7l12,40.1H0.7L12.8,0.7z',
-                    length: '35%',
-                    width: 6,
-                    offsetCenter: [0, '-40%'],
-                    itemStyle: {
-                        color: 'auto'
-                    }
-                },
-                axisTick: {
-                    length: 6,
-                    lineStyle: {
-                        color: 'auto',
-                        width: 2
-                    }
-                },
-                splitLine: {
-                    length: 10,
-                    lineStyle: {
-                        color: 'auto',
-                        width: 3
-                    }
-                },
-                axisLabel: {
-                    color: '#464646',
-                    fontSize: 20,
-                    distance: -60,
-                    rotate: 'tangential',
-                    formatter: function (value) {
-                        if (value === 0.875) {
-                            return '';
-                        } else if (value === 0.625) {
-                            return '';
-                        } else if (value === 0.375) {
-                            return '';
-                        } else if (value === 0.125) {
-                            return '';
-                        }
-                        return '';
-                    }
-                },
-                detail: {
-                    fontSize: 35,
-                    offsetCenter: [0, '-10%'],
-                    valueAnimation: true,
-                    formatter: function (value) {
-                        return Math.round(value * 100) + '';
-                    },
-                    color: 'inherit'
-                },
-                data: [
-                    {
-                        value: 0.32,
-                        name: ''
-                    }
-                ]
-            }
-        ]
-    };
-    // 使用刚指定的配置项和数据显示图表。
-    myChart.setOption(option);
-</script>
 
 </html>

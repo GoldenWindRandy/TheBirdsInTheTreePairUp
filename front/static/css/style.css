@@ -21,6 +21,11 @@ body {
     margin: 0;
 }
 
+iframe {
+    display: block;
+    margin: auto;
+}
+
 .chat_commento {
     width: 450px;
     height: 660px;
@@ -229,7 +234,7 @@ body {
     margin: 0 auto;
 }
 
-.week-wrap .item {
+.week-wrap .witem {
     width: 150px;
     height: 254px;
     cursor: pointer;
@@ -240,23 +245,23 @@ body {
     padding-top: 30px;
 }
 
-.week-wrap .item:hover {
+.week-wrap .witem:hover {
     background: #F7FAFF;
     border-radius: 10px;
 }
 
-.week-wrap .item span {
+.week-wrap .witem span {
     color: #393F48;
 }
 
-.week-wrap .item .date-box {
+.week-wrap .witem .date-box {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 4px;
 }
 
-.week-wrap .item .date-box .dateFormat {
+.week-wrap .witem .date-box .dateFormat {
     font-size: 16px;
     color: #393F48;
     letter-spacing: 0;
@@ -264,7 +269,7 @@ body {
     font-weight: 400;
 }
 
-.week-wrap .item .date-box .date {
+.week-wrap .witem .date-box .date {
     font-size: 16px;
     color: #88909D;
     letter-spacing: 0;
@@ -272,13 +277,13 @@ body {
     font-weight: 400;
 }
 
-.week-wrap .item img {
+.week-wrap .witem img {
     width: 46px;
     height: 46px;
     margin: 12px 0 12px;
 }
 
-.week-wrap .item .weather {
+.week-wrap .witem .weather {
     font-size: 16px;
     color: #393F48;
     letter-spacing: 0;
@@ -287,7 +292,7 @@ body {
     margin-bottom: 4px;
 }
 
-.week-wrap .item .temp {
+.week-wrap .witem .temp {
     font-size: 14px;
     color: #393F48;
     letter-spacing: 0;
@@ -296,7 +301,7 @@ body {
     margin-bottom: 10px;
 }
 
-.week-wrap .item .wind span {
+.week-wrap .witem .wind span {
     font-size: 14px;
     color: #676C74;
     letter-spacing: 0;
@@ -328,57 +333,122 @@ body {
     float: left;
 }
 
-.dataFrame1 {
-    width: 360px;
-    height: 220px;
-    background-color: rgba(243, 239, 231, 0.1);
-    border-radius: 10px;
-    border-width: 1px;
-    box-shadow: 5px 5px 5px #f8e58c;
-    border-color: #f8e58c;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
+button {
+    cursor: pointer;
 }
 
-.dataFrame2 {
-    width: 450px;
-    height: 220px;
-    background-color: rgba(243, 239, 231, 0.1);
+.memo-input {
+    outline: none;
+    background-color: #eaedf7;
+    border: none;
     border-radius: 10px;
-    border-width: 1px;
-    box-shadow: 5px 5px 5px #cee4ae;
-    border-color: #cee4ae;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
+    width: 250px;
+    height: 50px;
+    margin: 15px;
 }
 
-.dataFrame3 {
-    width: 360px;
-    height: 220px;
-    background-color: rgba(243, 239, 231, 0.1);
-    border-radius: 10px;
-    border-width: 1px;
-    box-shadow: 5px 5px 5px #bbc8e6;
-    border-color: #bbc8e6;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
+.memo-input::-webkit-input-placeholder {
+    color: #1f1f1f;
+    font-size: 16px;
 }
 
-.dataFrame4 {
-    width: 450px;
-    height: 220px;
-    background-color: rgba(243, 239, 231, 0.1);
-    border-radius: 10px;
-    border-width: 1px;
-    box-shadow: 5px 5px 5px #fdeff2;
-    border-color: #fdeff2;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
+/* 解决li前面的点删除后还占空间的问题 */
+ul {
+    padding: 0;
+    margin: 0;
 }
+
+ul>li {
+    list-style: none;
+}
+
+.border {
+    width: 430px;
+    background-color: white;
+    border-radius: 20px;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+.border .memo-title {
+    font-size: 24px;
+    color: rgb(16, 18, 19);
+    line-height: 50px;
+    text-align: center;
+}
+
+.form {
+    width: 80%;
+    margin: 15px auto;
+}
+
+.form #add {
+    background-color: #38a1db;
+    width: 52px;
+    height: 40px;
+    border-radius: 5px;
+    border: 0;
+    font-weight: 600;
+    font-size: 16px;
+    color: #0b0a0a;
+    letter-spacing: 6px;
+}
+
+/* 每一条li，代表每一条事件 */
+.item {
+    display: flex;
+    justify-content: space-between;
+    line-height: 30px;
+    font-size: 16px;
+    color: #cd5e3c;
+    padding: 5px 0;
+    border-bottom: 1px solid rgb(223, 130, 130);
+}
+
+.item .info {
+    margin-left: 10px;
+}
+
+.list .item .edit,
+.fin,
+.del {
+    width: 40px;
+    height: 30px;
+    border: 0;
+    border-radius: 5px;
+    color: white;
+}
+
+.edit {
+    background-color: #337ab7;
+}
+
+.fin {
+    background-color: #20c248;
+}
+
+.del {
+    background-color: #d9534f;
+}
+
+.btn .memo-btn {
+    display: inline-block;
+    width: 180px;
+    margin-right: 0;
+}
+
+/* 点击完成按钮后所添加的新类名finished */
+.finished {
+    color: rgb(112, 110, 110);
+    background-color: rgb(197, 190, 190);
+    border-radius: 3px
+}
+
+.finished>.info {
+    /* 为文字添加删除线 */
+    text-decoration: line-through;
+}
+
 
 .dataTitle {
     font-size: 20px;
@@ -453,6 +523,7 @@ body {
 .main-right {
     background-image: url("../image/p1.png");
     background-size: cover;
+    width: 600px;
 }
 
 .logo {
@@ -1272,8 +1343,20 @@ video {
     height: 28rem;
 }
 
+.h-\[20rem\] {
+    height: 20rem;
+}
+
 .h-\[30\%\] {
     height: 30%;
+}
+
+.h-\[45\%\] {
+    height: 45%;
+}
+
+.h-\[40\%\] {
+    height: 40%;
 }
 
 .h-\[32rem\] {

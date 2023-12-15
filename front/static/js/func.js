@@ -31,9 +31,9 @@ new Vue({
             count: 1,
             weather_code: ["310100", "330400", "320200"],
             setTemp: 26,
-            setHum: 120,
-            setAir: 25,
-            setLight: 500
+            setHum: 78,
+            setAir: 29,
+            setLight: 1200
         }
     },
     created() {
@@ -48,6 +48,61 @@ new Vue({
         })
     },
     methods: {
+        add_memo() {
+            var input = document.querySelector('.form input'); //获取事件输入框
+            var list = document.querySelector('.list'); //获取事件列表ul
+            var time = new Date()
+            var time1 = time.toString()
+            var time2 = time.toJSON()
+            var time3 = time2.substring(0, 10) + " " + time1.substring(16, 21)
+
+            if (input.value != "") {
+                list.insertAdjacentHTML('afterbegin', `
+    <li class="item">
+          <span class="info">${input.value}</span>
+          <div>${time3}</div>
+          <div class="btn memo-btn">
+            <button class="fin">完成</button>
+            <button class="del">删除</button>
+          </div>
+        </li>
+    `);
+                input.value = ""
+            }
+
+            //由于之前设置点击添加按钮后新元素item会被添加到插入元素内部的第一个子节点之前
+            //所以我们应该对list的第一个子元素节点进行操作，否则新增事件无法被删除、修改和完成
+            //删除
+            list.firstElementChild.querySelector('.del').addEventListener('click', function () {
+                var item = this.parentNode.parentNode
+                item.remove()
+            })
+            //完成
+            list.firstElementChild.querySelector('.fin').addEventListener('click', function () {
+                var item = this.parentNode.parentNode
+                item.classList.add('finished')
+            })
+
+
+            var delBtns = document.querySelectorAll('.del'); //获取删除按钮
+            var finBtns = document.querySelectorAll('.fin'); //获取完成按钮
+
+            //遍历，有几个删除按钮则相当于有几个事件（li）
+            for (var idx = 0; idx < delBtns.length; idx++) {
+                //点击删除按钮
+                delBtns[idx].addEventListener('click', function () {
+                    var item = this.parentNode.parentNode //删除按钮父级的父级，即类名为item的li(该按钮所在的行)，一个li即一个事件行
+                    item.remove(); //点击删除按钮后删除该条li
+                })
+
+                //点击完成按钮
+                finBtns[idx].addEventListener('click', function () {
+                    var item = this.parentNode.parentNode; //获取该条事件行
+                    //classList属性可以返回一个元素类属性集合
+                    item.classList.add('finished'); //点击完成按钮后为该行添加新类名finished，以实现新样式
+                })
+            }
+        },
         open_temp() {
             this.$confirm('此操作将改变设定温度, 是否继续?', '调节温度', {
                 confirmButtonText: '确定',
@@ -123,35 +178,6 @@ new Vue({
                     message: '已取消设置'
                 });
             });
-        },
-        async addQuestion() {
-            if (this.input === "") {
-                return;
-            }
-            const question = this.input
-            this.input = ""
-            this.QA.push(question);
-            document.getElementById("send-button").disabled = true;
-            setTimeout(function () {
-                var div = document.getElementById("chat_middle_item");
-                div.scrollTop = div.scrollHeight
-            }, 80)
-            await axios({
-                url: '/aaa/langchain/answer/',
-                method: 'get',
-                params: {
-                    question
-                }
-            }).then(result => {
-                //console.log(result.data[0][1])
-                const answer = result.data[0][1]
-                this.QA.push(answer);
-                document.getElementById("send-button").disabled = false;
-            }).catch(error => {
-                console.log(error)
-            })
-            var div = document.getElementById("chat_middle_item");
-            div.scrollTop = div.scrollHeight
         },
         dialogQuit() {
             this.dialogVisible = false;
