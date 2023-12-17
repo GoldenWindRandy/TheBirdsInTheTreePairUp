@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76fdb60c-558a-451a-9c5c-e141e81aa862" name="Changes" comment="debug:fix register and login">
-      <change beforePath="$PROJECT_DIR$/.idea/SoftwareEngineering.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SoftwareEngineering.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/langchain_model/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/langchain_model/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/文档/后端技术文档.docx" beforeDir="false" afterPath="$PROJECT_DIR$/文档/后端技术文档.docx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +110,8 @@
       <workItem from="1701137922065" duration="1697000" />
       <workItem from="1701162623700" duration="7000" />
       <workItem from="1702300972965" duration="2124000" />
-      <workItem from="1702304627725" duration="2055000" />
+      <workItem from="1702304627725" duration="2728000" />
+      <workItem from="1702651690423" duration="2242000" />
     </task>
     <task id="LOCAL-00001" summary="debug:fix register and login">
       <created>1700191680760</created>
